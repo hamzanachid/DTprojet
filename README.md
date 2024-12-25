@@ -80,3 +80,61 @@ Les modalités d’évaluation définissent les types d’évaluations pour chaq
 - Un élément de module appartient à un module et peut avoir plusieurs modalités d’évaluation.
 - Chaque modalité d’évaluation est liée à un élément de module spécifique.
  
+--------------------------------------
+
+1. **Utilisateur**:
+   - **id**: Identifiant unique de l'utilisateur.
+   - **nom**: Nom de l'utilisateur.
+   - **prenom**: Prénom de l'utilisateur.
+   - **login**: Nom d'utilisateur (pour la connexion).
+   - **motDePasse**: Mot de passe pour la connexion.
+   - **role**: Rôle de l'utilisateur (administrateur, professeur, etc.).
+
+2. **Professeur (hérite d'Utilisateur)**:
+   - **id**: Identifiant unique du professeur.
+   - **specialite**: Spécialité du professeur (par exemple, Mathématiques, Informatique).
+   - **code**: Code unique ou identifiant interne du professeur.
+   - **compteUtilisateur**: Référence à **CompteUtilisateur**.
+   - **modules**: Liste des modules assignés au professeur.
+   - **elementsDeModule**: Liste des éléments des modules dont le professeur est responsable.
+
+3. **Filière**:
+   - **id**: Identifiant unique de la filière.
+   - **nom**: Nom de la filière (par exemple, Informatique, Génie Civil).
+   - **modules**: Liste des modules dans cette filière.
+
+4. **Module**:
+   - **id**: Identifiant unique du module.
+   - **code**: Code unique pour le module (par exemple, MAT101, INFO202).
+   - **nom**: Nom du module (par exemple, "Algèbre", "Programmation Java").
+   - **filiere**: Référence à **Filière**.
+   - **semestre**: Le semestre du module (par exemple, S1, S2, etc.).
+   - **elementsDeModule**: Liste des éléments dans ce module.
+
+5. **ElementDeModule**:
+   - **id**: Identifiant unique de l'élément de module.
+   - **module**: Référence à **Module**.
+   - **nom**: Nom de l'élément (par exemple, "Examen final", "Travaux pratiques").
+   - **coefficient**: Coefficient de l'élément dans la pondération du module.
+   - **modalitesEvaluation**: Liste des modalités d'évaluation pour cet élément.
+
+6. **ModaliteEvaluation**:
+   - **id**: Identifiant unique de la modalité d'évaluation.
+   - **elementDeModule**: Référence à **ElementDeModule**.
+   - **type**: Type de l'évaluation (par exemple, CC, TP, Projet, Présentation).
+   - **coefficient**: Coefficient de cette modalité d'évaluation (poids en pourcentage dans la note finale).
+
+7. **Note**:
+   - **id**: Identifiant unique de la note.
+   - **etudiant**: Référence à **Etudiant**.
+   - **modaliteEvaluation**: Référence à **ModaliteEvaluation**.
+   - **note**: La note obtenue par l'étudiant pour cette modalité d'évaluation.
+   - **absence**: Indicateur booléen pour signaler si l'étudiant était absent (par exemple, 0 pour absent).
+   - **validation**: Indicateur booléen pour signaler si la note a été validée par le professeur.
+
+8. **Etudiant**:
+   - **id**: Identifiant unique de l'étudiant.
+   - **matricule**: Numéro d'enregistrement unique de l'étudiant.
+   - **filiere**: Référence à **Filière** pour indiquer la spécialisation de l'étudiant.
+   - **modules**: Liste des modules dans lesquels l'étudiant est inscrit.
+   - **notes**: Liste des notes pour chaque modalité d'évaluation.
