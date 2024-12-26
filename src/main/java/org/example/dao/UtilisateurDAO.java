@@ -1,13 +1,28 @@
 package org.example.dao;
 
+
 import org.example.entities.Utilisateur;
+import org.example.enums.Role;
+
+import java.util.List;
+import java.util.Optional;
 
 public interface UtilisateurDAO {
-    void save(Utilisateur utilisateur);
-    Utilisateur findById(Long id);
-    Utilisateur findByUsername(String username);
-    void update(Utilisateur utilisateur);
-    void delete(Long id);
-    Utilisateur login(String username, String password);
-    void signUp(Utilisateur utilisateur);
+    Utilisateur create(Utilisateur utilisateur);
+
+    Optional<Utilisateur> findById(Long id);
+    Optional<Utilisateur> findByLogin(String login);
+    List<Utilisateur> findAll();
+    List<Utilisateur> findByRole(Role role);
+    List<Utilisateur> findByNom(String nom);
+
+    Utilisateur update(Utilisateur utilisateur);
+    boolean updateMotDePasse(Long id, String newMotDePasse);
+
+    boolean delete(Long id);
+
+    Optional<Utilisateur> authenticate(String login, String motDePasse);
+    boolean existsByLogin(String login);
+
+    List<Utilisateur> saveAll(List<Utilisateur> utilisateurs);
 }

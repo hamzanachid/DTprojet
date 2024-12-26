@@ -1,36 +1,47 @@
 package org.example.builders;
 
 import org.example.entities.Utilisateur;
+import org.example.enums.Role;
 
 public class UtilisateurBuilder {
-
     private Long id;
-    private String username;
-    private String password;
-    private String role;
+    private String nom;
+    private String prenom;
+    private String login;
+    private String motDePasse;
+    private Role role;
 
-    // Setter methods for each field
-    public UtilisateurBuilder setId(Long id) {
+    public UtilisateurBuilder withId(Long id) {
         this.id = id;
         return this;
     }
 
-    public UtilisateurBuilder setUsername(String username) {
-        this.username = username;
+    public UtilisateurBuilder withNom(String nom) {
+        this.nom = nom;
         return this;
     }
 
-    public UtilisateurBuilder setPassword(String password) {
-        this.password = password;
+    public UtilisateurBuilder withPrenom(String prenom) {
+        this.prenom = prenom;
         return this;
     }
 
-    public UtilisateurBuilder setRole(String role) {
+    public UtilisateurBuilder withLogin(String login) {
+        this.login = login;
+        return this;
+    }
+
+    public UtilisateurBuilder withMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
+        return this;
+    }
+
+    public UtilisateurBuilder withRole(Role role) {
         this.role = role;
         return this;
     }
 
     public Utilisateur build() {
-        return new Utilisateur(id, username, password, role);
+        return new Utilisateur(id, nom, prenom, login, motDePasse, role);
     }
 }
