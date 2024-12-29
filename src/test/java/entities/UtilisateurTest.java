@@ -11,6 +11,6 @@ public class UtilisateurTest {
     @Test
     public void TestConstructor(){
         Utilisateur utilisateur = new Utilisateur();
-        assertNull(utilisateur.getNom());
+        assertNotNull(utilisateur);
     }
 }

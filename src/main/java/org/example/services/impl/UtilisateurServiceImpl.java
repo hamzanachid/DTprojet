@@ -16,10 +16,9 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     public UtilisateurServiceImpl(UtilisateurDAO utilisateurDAO) {
         this.utilisateurDAO = utilisateurDAO;
     }
- 
+
     @Override
     public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
-        // Using the builder to create a new Utilisateur
         Utilisateur utilisateur = new UtilisateurBuilder()
                 .withNom(nom)
                 .withPrenom(prenom)
@@ -28,10 +27,9 @@ public class UtilisateurServiceImpl implements UtilisateurService {
                 .withRole(role)
                 .build();
 
-        return utilisateurDAO.create(utilisateur); // Persist utilisateur
+        return utilisateurDAO.create(utilisateur);
     }
 
-    // Read operations
     @Override
     public Optional<Utilisateur> getUtilisateurById(Long id) {
         return utilisateurDAO.findById(id);
@@ -57,7 +55,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         return utilisateurDAO.findByNom(nom);
     }
 
-    // Update operations
     @Override
     public Utilisateur updateUtilisateur(Utilisateur utilisateur) {
         return utilisateurDAO.update(utilisateur);
@@ -73,13 +70,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         return utilisateurDAO.updateMotDePasse(id, newMotDePasse);
     }
 
-    // Delete operations
     @Override
     public boolean deleteUtilisateur(Long id) {
         return utilisateurDAO.delete(id);
     }
 
-    // Authentication operations
     @Override
     public boolean authenticateUtilisateur(String login, String motDePasse) {
         Optional<Utilisateur> utilisateur = utilisateurDAO.authenticate(login, motDePasse);
@@ -91,7 +86,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         return utilisateurDAO.authenticate(login, motDePasse);
     }
 
-    // Additional helper methods
     @Override
     public boolean isLoginAvailable(String login) {
         return !utilisateurDAO.existsByLogin(login);
@@ -99,20 +93,16 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     public boolean validateMotDePasse(String motDePasse) {
-        // Simple password validation (for example, check length)
         return motDePasse != null && motDePasse.length() >= 8;
     }
 
-    // Batch operation
     @Override
     public List<Utilisateur> saveAllUtilisateurs(List<Utilisateur> utilisateurs) {
         return utilisateurDAO.saveAll(utilisateurs);
     }
 
-    // Sign up operation using the builder
     @Override
     public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
-        // Using the builder to create a new Utilisateur
         Utilisateur utilisateur = new UtilisateurBuilder()
                 .withNom(nom)
                 .withPrenom(prenom)
@@ -121,6 +111,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
                 .withRole(role)
                 .build();
 
-        return utilisateurDAO.create(utilisateur); // Persist the utilisateur
+        return utilisateurDAO.create(utilisateur);
     }
 }
