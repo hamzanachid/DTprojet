@@ -9,7 +9,7 @@ public class Professeur extends Utilisateur {
     private String specialite;
     private String code;
     private Utilisateur compteUtilisateur;
-    private List<Module> modules;
+
     private List<ElementDeModule> elementsDeModule;
 
 
@@ -45,13 +45,6 @@ public class Professeur extends Utilisateur {
         this.compteUtilisateur = compteUtilisateur;
     }
 
-    public List<Module> getModules() {
-        return modules;
-    }
-
-    public void setModules(List<Module> modules) {
-        this.modules = modules;
-    }
 
     public List<ElementDeModule> getElementsDeModule() {
         return elementsDeModule;
@@ -71,7 +64,6 @@ public class Professeur extends Utilisateur {
         this.specialite = specialite;
         this.code = code;
         this.compteUtilisateur = compteUtilisateur;
-        this.modules = modules;
         this.elementsDeModule = elementsDeModule;
     }
 
@@ -83,7 +75,6 @@ public class Professeur extends Utilisateur {
                 ", specialite='" + specialite + '\'' +
                 ", code='" + code + '\'' +
                 ", compteUtilisateur=" + compteUtilisateur +
-                ", modules=" + modules +
                 ", elementsDeModule=" + elementsDeModule +
                 '}';
     }

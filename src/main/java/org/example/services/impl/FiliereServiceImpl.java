@@ -1,5 +1,7 @@
 package org.example.services.impl;
 
+import org.example.dao.FiliereDao;
+import org.example.dao.impl.FiliereDaoImpl;
 import org.example.entities.ElementDeModule;
 import org.example.entities.Filiere;
 import org.example.services.FiliereService;
@@ -8,6 +10,12 @@ import java.util.List;
 
 public class FiliereServiceImpl implements FiliereService {
 
+    private static FiliereDao filiereDao = FiliereDaoImpl.instance;
+    final static FiliereService instance = new FiliereServiceImpl();
+
+    private FiliereServiceImpl(){
+    }
+
 
 
     @Override
@@ -15,28 +23,4 @@ public class FiliereServiceImpl implements FiliereService {
         return null;
     }
 
-    @Override
-    public void update(Filiere filiere) {
-
-    }
-
-    @Override
-    public void delete(Long id) {
-
-    }
-
-    @Override
-    public Filiere getById(Long id) {
-        return null;
-    }
-
-    @Override
-    public List<Filiere> getAll() {
-        return null;
-    }
-
-    @Override
-    public List<ElementDeModule> getElements(Long filiereId) {
-        return null;
-    }
 }
