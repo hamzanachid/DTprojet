@@ -10,13 +10,11 @@ import java.util.List;
 
 public class FiliereServiceImpl implements FiliereService {
 
-    private static FiliereDao filiereDao = FiliereDaoImpl.instance;
-    final static FiliereService instance = new FiliereServiceImpl();
+    private static final FiliereDao filiereDao = FiliereDaoImpl.instance;
+    public final static FiliereService instance = new FiliereServiceImpl();
 
     private FiliereServiceImpl(){
     }
-
-
 
     @Override
     public Filiere create(Filiere filiere) {

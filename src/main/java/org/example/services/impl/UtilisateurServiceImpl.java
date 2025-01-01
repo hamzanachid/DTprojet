@@ -1,6 +1,6 @@
 package org.example.services.impl;
 
-import org.example.dao.UtilisateurDAO;
+import org.example.dao.UtilisateurDao;
 import org.example.entities.Utilisateur;
 import org.example.enums.Role;
 import org.example.services.UtilisateurService;
@@ -12,17 +12,15 @@ import java.util.Optional;
 public class UtilisateurServiceImpl implements UtilisateurService {
 
 
-    private final UtilisateurDAO utilisateurDAO;
+    private final UtilisateurDao utilisateurDAO;
 
-    public UtilisateurServiceImpl(UtilisateurDAO utilisateurDAO) {
+    public UtilisateurServiceImpl(UtilisateurDao utilisateurDAO) {
         this.utilisateurDAO = utilisateurDAO;
     }
 
     @Override
     public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
         Utilisateur utilisateur = new UtilisateurBuilder()
-                .withNom(nom)
-                .withPrenom(prenom)
                 .withLogin(login)
                 .withMotDePasse(motDePasse)
                 .withRole(role)
@@ -105,8 +103,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
         Utilisateur utilisateur = new UtilisateurBuilder()
-                .withNom(nom)
-                .withPrenom(prenom)
                 .withLogin(login)
                 .withMotDePasse(motDePasse)
                 .withRole(role)

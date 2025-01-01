@@ -7,7 +7,7 @@ import org.example.enums.Role;
 import java.util.List;
 import java.util.Optional;
 
-public interface UtilisateurDAO {
+public interface UtilisateurDao {
     Utilisateur create(Utilisateur utilisateur);
 
     Optional<Utilisateur> findById(Long id);

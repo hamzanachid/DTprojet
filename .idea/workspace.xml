@@ -5,23 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3894e6a4-5907-4311-8bcb-0905c1c3e93c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plan" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/ElementDeModuleBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/FiliereBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/ModuleBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/FiliereDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/FiliereDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/FiliereService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/FiliereServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ElementDeModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ElementDeModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Filiere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Filiere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ModaliteEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ModaliteEvaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/UtilisateurBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/UtilisateurBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/FiliereDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/FiliereDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Professeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Professeur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/ModaliteEvaluationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/ModaliteEvaluationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Utilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/FiliereServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/FiliereServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/UtilisateurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/UtilisateurServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,43 +50,112 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ProfesseurDaoTest.executor": "Debug",
+    "JUnit.ProfesseurDaoTest.testAuthenticateProfesseur.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testAuthenticateProfesseurNotFound.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testCreateProfesseur.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testDeleteProfesseur.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testExistsByLoginExists.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testExistsByLoginNotFound.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testFindAll.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testFindById.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testFindByLogin.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testFindByNom.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testFindByRole.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testSaveAllProfesseurs.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testUpdateMotDePasse.executor": "Run",
+    "JUnit.ProfesseurDaoTest.testUpdateProfesseur.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "feature/professor-layer",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.UtilisateurTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+}]]></component>
+  <component name="RunManager" selected="JUnit.ProfesseurDaoTest.testExistsByLoginNotFound">
+    <configuration name="ProfesseurDaoTest.testAuthenticateProfesseur" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DTProjet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.ProfesseurDaoTest" />
+      <option name="METHOD_NAME" value="testAuthenticateProfesseur" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UtilisateurTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfesseurDaoTest.testAuthenticateProfesseurNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DTProjet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="entities.*" />
+          <option name="PATTERN" value="dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="entities" />
-      <option name="MAIN_CLASS_NAME" value="entities.UtilisateurTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.ProfesseurDaoTest" />
+      <option name="METHOD_NAME" value="testAuthenticateProfesseurNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfesseurDaoTest.testExistsByLoginExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DTProjet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.ProfesseurDaoTest" />
+      <option name="METHOD_NAME" value="testExistsByLoginExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfesseurDaoTest.testExistsByLoginNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DTProjet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.ProfesseurDaoTest" />
+      <option name="METHOD_NAME" value="testExistsByLoginNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfesseurDaoTest.testSaveAllProfesseurs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DTProjet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.ProfesseurDaoTest" />
+      <option name="METHOD_NAME" value="testSaveAllProfesseurs" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,8 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UtilisateurTest" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ProfesseurDaoTest.testExistsByLoginNotFound" />
+        <item itemvalue="JUnit.ProfesseurDaoTest.testSaveAllProfesseurs" />
+        <item itemvalue="JUnit.ProfesseurDaoTest.testExistsByLoginExists" />
+        <item itemvalue="JUnit.ProfesseurDaoTest.testAuthenticateProfesseurNotFound" />
+        <item itemvalue="JUnit.ProfesseurDaoTest.testAuthenticateProfesseur" />
       </list>
     </recent_temporary>
   </component>

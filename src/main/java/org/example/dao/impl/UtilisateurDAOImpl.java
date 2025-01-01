@@ -1,7 +1,7 @@
 package org.example.dao.impl;
 
 import org.example.config.DatabaseConnection;
-import org.example.dao.UtilisateurDAO;
+import org.example.dao.UtilisateurDao;
 import org.example.entities.Utilisateur;
 import org.example.enums.Role;
 
@@ -10,30 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class UtilisateurDAOImpl implements UtilisateurDAO {
+public class UtilisateurDaoImpl implements UtilisateurDao {
 
-    private static UtilisateurDAOImpl instance;
+    private static UtilisateurDaoImpl instance;
     private final DatabaseConnection connectionManager;
 
-    private UtilisateurDAOImpl(DatabaseConnection connectionManager) {
+    private UtilisateurDaoImpl(DatabaseConnection connectionManager) {
         this.connectionManager = connectionManager;
     }
 
-    public static UtilisateurDAO getInstance(DatabaseConnection connectionManager) {
+    public static UtilisateurDao getInstance(DatabaseConnection connectionManager) {
         if (instance == null) {
-            instance = new UtilisateurDAOImpl(connectionManager);
+            instance = new UtilisateurDaoImpl(connectionManager);
         }
         return instance;
     }
 
     @Override
     public Utilisateur create(Utilisateur utilisateur) {
-        String sql = "INSERT INTO utilisateurs (nom, prenom, login, motDePasse, role) VALUES (?, ?, ?, ?, ?) RETURNING id";
+        String sql = "INSERT INTO utilisateurs (login, motDePasse, role) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, utilisateur.getNom());
-            stmt.setString(2, utilisateur.getPrenom());
             stmt.setString(3, utilisateur.getLogin());
             stmt.setString(4, utilisateur.getMotDePasse());
             stmt.setString(5, utilisateur.getRole().name());
@@ -146,8 +144,6 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, utilisateur.getNom());
-            stmt.setString(2, utilisateur.getPrenom());
             stmt.setString(3, utilisateur.getLogin());
             stmt.setString(4, utilisateur.getMotDePasse());
             stmt.setString(5, utilisateur.getRole().name());
@@ -243,8 +239,6 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
     private Utilisateur mapResultSetToUtilisateur(ResultSet rs) throws SQLException {
         return new Utilisateur(
                 rs.getLong("id"),
-                rs.getString("nom"),
-                rs.getString("prenom"),
                 rs.getString("login"),
                 rs.getString("motDePasse"),
                 Role.valueOf(rs.getString("role"))
