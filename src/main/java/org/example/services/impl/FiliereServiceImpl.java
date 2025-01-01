@@ -9,14 +9,11 @@ import org.example.services.FiliereService;
 import java.util.List;
 
 public class FiliereServiceImpl implements FiliereService {
-
     private static FiliereDao filiereDao = FiliereDaoImpl.instance;
     final static FiliereService instance = new FiliereServiceImpl();
 
     private FiliereServiceImpl(){
     }
-
-
 
     @Override
     public Filiere create(Filiere filiere) {
