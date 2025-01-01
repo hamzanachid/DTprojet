@@ -1,0 +1,17 @@
+Filiere (id, name, code)
+Module (id, code, name, semester"enum")
+ElementDeModule (id, name, coefficient)
+MaodaliteDeValidation (id, coeffient, type<CC | ...>)
+Prof (id, first, last, specialization, code)
+User (id, login, password)
+Student (id, first, last, apogée)
+Note (id, value, isValid, isPresent)
+
+Filire 1 -> n Modules
+Filiere 1 -> n students
+Module 1 -> n Element de module
+Element 1 -> n Modalites
+Prof 1 -> n Elements
+Student 1 -> n Modules
+Student 1 -> n Notes
+Modalite 1 -> 1 Note
