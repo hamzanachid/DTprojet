@@ -11,11 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FiliereDaoImpl implements FiliereDao {
-
     private final DatabaseConnection connectionManager = DatabaseConnection.getInstance();
-
-    public static final FiliereDao instance = new FiliereDaoImpl();
-
+    public final static FiliereDao instance = new FiliereDaoImpl();
     private FiliereDaoImpl() {
     }
 

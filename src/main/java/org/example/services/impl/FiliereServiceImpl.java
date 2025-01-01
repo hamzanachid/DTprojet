@@ -8,7 +8,6 @@ import org.example.services.FiliereService;
 import java.util.List;
 
 public class FiliereServiceImpl implements FiliereService {
-
     private static FiliereDao filiereDao = FiliereDaoImpl.instance;
     public static final FiliereService instance = new FiliereServiceImpl();
 

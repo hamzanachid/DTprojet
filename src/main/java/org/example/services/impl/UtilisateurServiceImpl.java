@@ -5,7 +5,6 @@ import org.example.entities.Utilisateur;
 import org.example.enums.Role;
 import org.example.services.UtilisateurService;
 import org.example.builders.UtilisateurBuilder;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +12,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
 
     private final UtilisateurDAO utilisateurDAO;
-
     public UtilisateurServiceImpl(UtilisateurDAO utilisateurDAO) {
         this.utilisateurDAO = utilisateurDAO;
     }
