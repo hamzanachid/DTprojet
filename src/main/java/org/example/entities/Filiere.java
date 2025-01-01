@@ -6,27 +6,49 @@ import java.util.List;
 import java.util.Objects;
 
 public class Filiere {
-    private int id;
+    private Long id;
     private String nom;
     private String code;
     private List<ElementDeModule> elementDeModules;
 
+    public Filiere() {
+    }
 
-    public Filiere() {}
+    @Override
+    public String toString() {
+        return "Filiere{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", code='" + code + '\'' +
+                ", elementDeModules=" + elementDeModules +
+                '}';
+    }
 
-    // Parameterized Constructor
-    public Filiere(int id, String nom, List<ElementDeModule> elementDeModules) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Filiere)) return false;
+        Filiere filiere = (Filiere) o;
+        return id == filiere.id && Objects.equals(nom, filiere.nom) && Objects.equals(code, filiere.code) && Objects.equals(elementDeModules, filiere.elementDeModules);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nom, code, elementDeModules);
+    }
+
+    public Filiere(Long id, String nom, String code, List<ElementDeModule> elementDeModules) {
         this.id = id;
         this.nom = nom;
+        this.code = code;
         this.elementDeModules = elementDeModules;
     }
 
-    // Getters and Setters
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -38,6 +60,14 @@ public class Filiere {
         this.nom = nom;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public List<ElementDeModule> getElementDeModules() {
         return elementDeModules;
     }
@@ -46,31 +76,6 @@ public class Filiere {
         this.elementDeModules = elementDeModules;
     }
 
-    // toString Method
-    @Override
-    public String toString() {
-        return "Filiere{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", elementDeModules=" + elementDeModules +
-                '}';
-    }
-
-    // equals and hashCode Methods
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Filiere filiere = (Filiere) o;
-        return id == filiere.id &&
-                Objects.equals(nom, filiere.nom) &&
-                Objects.equals(elementDeModules, filiere.elementDeModules);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nom, elementDeModules);
-    }
     public static FiliereBuilder builder() {
         return new FiliereBuilder();
     }

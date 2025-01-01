@@ -6,11 +6,12 @@ import org.example.entities.Filiere;
 import java.util.List;
 
 public  class FiliereBuilder {
-    private int id;
+    private Long id;
     private String nom;
+    private String code;
     private List<ElementDeModule> elementDeModules;
 
-    public FiliereBuilder setId(int id) {
+    public FiliereBuilder setId(Long id) {
         this.id = id;
         return this;
     }
@@ -20,12 +21,17 @@ public  class FiliereBuilder {
         return this;
     }
 
+    public FiliereBuilder setCode(String code) {
+        this.code = code;
+        return this;
+    }
+
     public FiliereBuilder setElementDeModules(List<ElementDeModule> elementDeModules) {
         this.elementDeModules = elementDeModules;
         return this;
     }
 
     public Filiere build() {
-        return new Filiere(id, nom, elementDeModules);
+        return new Filiere(id, nom,code, elementDeModules);
     }
 }
