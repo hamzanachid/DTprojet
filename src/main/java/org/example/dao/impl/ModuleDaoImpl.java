@@ -15,15 +15,13 @@ import java.util.List;
 
 public class ModuleDaoImpl implements ModuleDao {
     private final DatabaseConnection connectionManager = DatabaseConnection.getInstance();
-
     public static final ModuleDao instance = new ModuleDaoImpl();
-
     private ModuleDaoImpl() {
     }
 
     @Override
     public Module findByName(String name) {
-        String sql = "SELECT * FROM modules WHERE nom = ?";
+        String sql = "SELECT * FROM module WHERE nom = ?";
         Module module = null;
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -43,7 +41,7 @@ public class ModuleDaoImpl implements ModuleDao {
 
     @Override
     public Module create(Module module) {
-        String sql = "INSERT INTO modules (code, nom, semester,filiere_id) VALUES (?, ? , ?,?) RETURNING id;";
+        String sql = "INSERT INTO module (code, nom, semestre, filiere_id) VALUES (?, ?, CAST(? AS semestre_enum), ?) RETURNING id;";
         try (Connection connection = connectionManager.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, module.getCode());
@@ -67,7 +65,7 @@ public class ModuleDaoImpl implements ModuleDao {
 
     @Override
     public void update(Module module) {
-        String sql = "UPDATE modules SET code = ?, nom = ? , semester = ?,filiere_id=? WHERE id = ?";
+        String sql = "UPDATE module SET code = ?, nom = ? , semestre = ?,filiere_id=? WHERE id = ?";
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -86,7 +84,7 @@ public class ModuleDaoImpl implements ModuleDao {
 
     @Override
     public void delete(Long id) {
-        String sql = "DELETE FROM modules WHERE id = ?";
+        String sql = "DELETE FROM module WHERE id = ?";
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -100,7 +98,7 @@ public class ModuleDaoImpl implements ModuleDao {
 
     @Override
     public Module findById(Long id) {
-        String sql = "SELECT * FROM modules WHERE id = ?";
+        String sql = "SELECT * FROM module WHERE id = ?";
         Module module = null;
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -120,20 +118,20 @@ public class ModuleDaoImpl implements ModuleDao {
 
     @Override
     public List<Module> findAll() {
-        String sql = "SELECT * FROM modules";
-        List<Module> modules = new ArrayList<>();
+        String sql = "SELECT * FROM module";
+        List<Module> module = new ArrayList<>();
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
-                modules.add(mapResultSetToModule(resultSet));
+                module.add(mapResultSetToModule(resultSet));
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return modules;
+        return module;
     }
 
     private Module mapResultSetToModule(ResultSet resultSet) throws SQLException {
@@ -143,7 +141,7 @@ public class ModuleDaoImpl implements ModuleDao {
         module.setCode(resultSet.getString("code"));
         module.setNom(resultSet.getString("nom"));
 
-        module.setSemestre(Semestre.valueOf(resultSet.getString("semester")));
+        module.setSemestre(Semestre.valueOf(resultSet.getString("semestre")));
 
         FiliereDao filiereDao=FiliereDaoImpl.instance;
         Filiere filiere=filiereDao.findById(resultSet.getLong("filiere_id"));

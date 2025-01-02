@@ -85,7 +85,7 @@ public class ModuleServiceImpl implements ModuleService {
     @Override
     public List<Module> findAll() {
         List<Module> Modules = moduleDao.findAll();
-        if (Modules == null || Modules.isEmpty()) {
+        if (Modules == null) {
             throw new IllegalStateException("No Modules found in the database");
         }
         return Modules;
