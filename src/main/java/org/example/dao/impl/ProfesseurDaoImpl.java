@@ -5,6 +5,7 @@ import org.example.dao.ProfesseurDao;
 import org.example.entities.Professeur;
 import org.example.entities.Utilisateur;
 import org.example.enums.Role;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +18,8 @@ import java.util.Optional;
 public class ProfesseurDaoImpl implements ProfesseurDao {
   public final static ProfesseurDao instance = new ProfesseurDaoImpl();
 
-  private ProfesseurDaoImpl() {}
+  private ProfesseurDaoImpl() {
+  }
 
   private Connection getConnection() throws SQLException {
     return DatabaseConnection.getInstance().getConnection();
@@ -25,68 +27,48 @@ public class ProfesseurDaoImpl implements ProfesseurDao {
 
   @Override
   public Professeur create(Professeur professeur) {
-    // SQL queries for inserting data into the tables
-    String utilisateurSql = "INSERT INTO utilisateur (login, mot_de_passe, role) VALUES (?, ?, ?) RETURNING id";
+    // SQL query for inserting data into the professeur table
     String professeurSql = "INSERT INTO professeur (id, nom, prenom, specialite, code) VALUES (?, ?, ?, ?, ?)";
 
-    Connection connection = null;
-
-    try {
-      connection = getConnection();
+    try (Connection connection = getConnection()) {
       connection.setAutoCommit(false); // Start transaction
 
-      // Save Utilisateur first
-      try (PreparedStatement utilisateurStmt = connection.prepareStatement(utilisateurSql)) {
-        utilisateurStmt.setString(1, professeur.getLogin());
-        utilisateurStmt.setString(2, professeur.getMotDePasse());
-        utilisateurStmt.setString(3, professeur.getRole().name());
+      // Create the associated Utilisateur
+      Utilisateur utilisateur = UtilisateurDaoImpl
+        .getInstance(DatabaseConnection.getInstance())
+        .create(
+          new Utilisateur(
+            null,
+            professeur.getLogin(),
+            professeur.getMotDePasse(),
+            professeur.getRole()
+          )
+        );
 
-        ResultSet utilisateurResultSet = utilisateurStmt.executeQuery();
-
-        if (utilisateurResultSet.next()) {
-          long utilisateurId = utilisateurResultSet.getLong("id");
-          professeur.setId(utilisateurId); // Set the ID in Professeur
-
-          // Save Professeur
-          try (PreparedStatement professeurStmt = connection.prepareStatement(professeurSql)) {
-            professeurStmt.setLong(1, utilisateurId); // Link Professeur to Utilisateur
-            professeurStmt.setString(2, professeur.getNom());
-            professeurStmt.setString(3, professeur.getPrenom());
-            professeurStmt.setString(4, professeur.getSpecialite());
-            professeurStmt.setString(5, professeur.getCode());
-            professeurStmt.executeUpdate();
-
-            connection.commit(); // Commit the transaction
-          }
-        } else {
-          throw new SQLException("Failed to create Utilisateur record");
-        }
-
-      } catch (SQLException e) {
-        // Rollback transaction in case of an error
-        if (connection != null) {
-          connection.rollback();
-        }
-        e.printStackTrace();
-        return null;
+      if (utilisateur == null || utilisateur.getId() == null) {
+        throw new SQLException("Failed to create Utilisateur record");
       }
+
+      professeur.setId(utilisateur.getId()); // Link Professeur to Utilisateur
+
+      // Save Professeur
+      try (PreparedStatement professeurStmt = connection.prepareStatement(professeurSql)) {
+        professeurStmt.setLong(1, professeur.getId());
+        professeurStmt.setString(2, professeur.getNom());
+        professeurStmt.setString(3, professeur.getPrenom());
+        professeurStmt.setString(4, professeur.getSpecialite());
+        professeurStmt.setString(5, professeur.getCode());
+
+        professeurStmt.executeUpdate();
+      }
+
+      connection.commit(); // Commit the transaction
+      return professeur;
 
     } catch (SQLException e) {
       e.printStackTrace();
       return null;
-    } finally {
-      // Ensure the connection is closed
-      try {
-        if (connection != null && !connection.isClosed()) {
-          connection.setAutoCommit(true); // Restore default auto-commit
-          connection.close();
-        }
-      } catch (SQLException closeEx) {
-        closeEx.printStackTrace();
-      }
     }
-
-    return professeur;
   }
 
   @Override

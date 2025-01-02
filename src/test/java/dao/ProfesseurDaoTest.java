@@ -1,19 +1,21 @@
 package dao;
 
+import org.example.config.DatabaseConnection;
 import org.example.dao.ProfesseurDao;
 import org.example.dao.impl.ProfesseurDaoImpl;
 import org.example.entities.Professeur;
 import org.example.enums.Role;
-import org.example.config.DatabaseConnection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ProfesseurDaoTest {
 
