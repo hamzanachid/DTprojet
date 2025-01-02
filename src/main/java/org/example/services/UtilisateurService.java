@@ -18,7 +18,7 @@ public interface UtilisateurService {
     boolean updateMotDePasse(Long id, String oldMotDePasse, String newMotDePasse);
     boolean updateMotDePasse(Long id, String newMotDePasse);
     boolean deleteUtilisateur(Long id);
-    boolean authenticateUtilisateur(String login, String motDePasse);
+    Optional<Utilisateur> authenticateUtilisateur(String login, String motDePasse);
     Optional<Utilisateur> loginUtilisateur(String login, String motDePasse);
     List<Utilisateur> saveAllUtilisateurs(List<Utilisateur> utilisateurs);
     Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, Role role);

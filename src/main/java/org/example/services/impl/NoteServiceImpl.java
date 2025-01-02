@@ -1,19 +1,18 @@
 package org.example.services.impl;
 
-import org.example.dao.ElementDeModuleDao;
+import org.example.dao.ElementDeModuleDAO;
 import org.example.dao.NoteDao;
 import org.example.dao.impl.ElementDeModuleDaoImpl;
 import org.example.dao.impl.NoteDaoImpl;
 import org.example.entities.ElementDeModule;
 import org.example.entities.Note;
 import org.example.services.NoteService;
-import org.example.utils.ExcelExporter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class NoteServiceImpl implements NoteService {
-    private final NoteDao noteDao = NoteDaoImpl.getInstance();
-    private final ElementDeModuleDao elementDeModuleDao = ElementDeModuleDaoImpl.getInstance();
+    private final NoteDao noteDao = NoteDaoImpl.instance;
+    private final ElementDeModuleDAO elementDeModuleDao = ElementDeModuleDaoImpl.instance;
     private static final NoteService instance = new NoteServiceImpl();
     private List<Note> draftNotes = new ArrayList<>();
 
@@ -21,6 +20,18 @@ public class NoteServiceImpl implements NoteService {
 
     public static NoteService getInstance() {
         return instance;
+    }
+
+    public boolean  isValidNote(Note note) {
+        if (note.getNote() < 0 || note.getNote() > 20) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validateDraft(List<Note> draftNotes) {
+        // true if all true
+        return draftNotes.stream().allMatch(c -> isValidNote(c));
     }
 
     @Override
@@ -33,47 +44,23 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public void saveDraft() {
-        for (Note note : draftNotes) {
-            if (note.getId() ) {
-                noteDao.create(note);
-            } else {
-                noteDao.update(note);
-            }
+        if(!validateDraft(draftNotes)){
+            return;
         }
-    }
-
-    public void cancelDraft() {
+        for (Note note : draftNotes) {
+            noteDao.create(note);
+        }
         draftNotes.clear();
     }
 
     @Override
     public void markAbsent(Long studentId, Long modalityId) {
-        Note note = new Note();
-        note.setNote(0.0);
-        note.setAbsence(true);
-        note.getEtudiant().setId(studentId);
-        note.getModaliteEvaluation().setId(modalityId);
-        noteDao.create(note);
+
     }
 
     @Override
     public boolean validateElement(Long elementId, boolean confirmZeroTwenty) {
-        ElementDeModule element = elementDeModuleDao.getById(elementId);
-        if (element == null) return false;
-
-        List<Note> notes = noteDao.getByElement(elementId);
-        if (!checkNotes(notes, confirmZeroTwenty)) return false;
-
-        double average = noteDao.calculateElementAverage(elementId);
-        element.setMoyenne(average);
-        element.setEstValide(true);
-        elementDeModuleDao.update(element);
-
-        if (checkModuleValidation(element.getModule().getId())) {
-            updateModuleAverage(element.getModule().getId());
-        }
-
-        return true;
+        return false;
     }
 
     private boolean checkNotes(List<Note> notes, boolean confirmZeroTwenty) {
@@ -108,9 +95,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public void exportNotes(Long elementId) {
-        ElementDeModule element = elementDeModuleDao.getById(elementId);
-        if (!element.isEstValide()) throw new RuntimeException("Element must be validated first");
-        List<Note> notes = noteDao.getByElement(elementId);
-        ExcelExporter.exportNotes(notes, element);
+
     }
+
 }

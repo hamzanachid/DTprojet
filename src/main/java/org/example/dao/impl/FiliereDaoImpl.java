@@ -33,7 +33,22 @@ public class FiliereDaoImpl implements FiliereDao {
             return null;
         }
     }
+    @Override
+    public Filiere findByName(String name) {
+        String query = "SELECT * FROM filiere WHERE nom = ?;";
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
 
+            statement.setString(1, name);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return mapToFiliere(resultSet);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     @Override
     public Filiere findById(Long id) {
         String query = "SELECT * FROM filiere WHERE id = ?;";

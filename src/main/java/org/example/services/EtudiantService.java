@@ -9,5 +9,7 @@ public interface EtudiantService {
     void delete(Long id);
     Etudiant getById(Long id);
     List<Etudiant> getByFiliere(Long filiereId);
+    List<Etudiant> findAll();
+    Etudiant getByMatricule(String matricule);
 }
 

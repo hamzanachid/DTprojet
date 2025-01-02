@@ -11,4 +11,5 @@ public interface FiliereDao {
     void update(Filiere filiere);
     void delete(Long id);
     List<Filiere> findAll();
+    Filiere findByName(String name);
 }

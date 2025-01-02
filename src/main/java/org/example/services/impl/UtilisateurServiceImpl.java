@@ -1,20 +1,22 @@
 package org.example.services.impl;
 
+import org.example.dao.ModuleDao;
 import org.example.dao.UtilisateurDAO;
+import org.example.dao.impl.ModuleDaoImpl;
+import org.example.dao.impl.UtilisateurDAOImpl;
 import org.example.entities.Utilisateur;
 import org.example.enums.Role;
+import org.example.services.ModuleService;
 import org.example.services.UtilisateurService;
 import org.example.builders.UtilisateurBuilder;
 import java.util.List;
 import java.util.Optional;
 
 public class UtilisateurServiceImpl implements UtilisateurService {
+    private static UtilisateurDAO utilisateurDAO = UtilisateurDAOImpl.instance;
+    public static final UtilisateurService instance = new UtilisateurServiceImpl();
 
-
-    private final UtilisateurDAO utilisateurDAO;
-    public UtilisateurServiceImpl(UtilisateurDAO utilisateurDAO) {
-        this.utilisateurDAO = utilisateurDAO;
-    }
+    private UtilisateurServiceImpl() {}
 
     @Override
     public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
@@ -75,9 +77,9 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     }
 
     @Override
-    public boolean authenticateUtilisateur(String login, String motDePasse) {
+    public Optional<Utilisateur> authenticateUtilisateur(String login, String motDePasse) {
         Optional<Utilisateur> utilisateur = utilisateurDAO.authenticate(login, motDePasse);
-        return utilisateur.isPresent();
+        return utilisateur;
     }
 
     @Override

@@ -5,6 +5,7 @@ import org.example.dao.impl.FiliereDaoImpl;
 import org.example.entities.Filiere;
 import org.example.services.FiliereService;
 
+import java.io.File;
 import java.util.List;
 
 public class FiliereServiceImpl implements FiliereService {
@@ -34,6 +35,13 @@ public class FiliereServiceImpl implements FiliereService {
             throw new IllegalArgumentException("Invalid Filiere or ID");
         }
         filiereDao.update(filiere);
+    }
+
+    public Filiere getByName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Filiere name cannot be null or empty");
+        }
+        return filiereDao.findByName(name);
     }
 
     @Override

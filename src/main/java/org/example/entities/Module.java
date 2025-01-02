@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Module {
-    private int id;
+    private Long id;
     private String code;
     private String nom;
     private Filiere filiere;
@@ -21,7 +21,7 @@ public class Module {
     public Module() {}
 
     // Parameterized Constructor
-    public Module(int id, String code, String nom, Filiere filiere, Semestre semestre, List<ElementDeModule> elementsDeModule) {
+    public Module(Long id, String code, String nom, Filiere filiere, Semestre semestre, List<ElementDeModule> elementsDeModule) {
         this.id = id;
         this.code = code;
         this.nom = nom;
@@ -31,11 +31,11 @@ public class Module {
     }
 
     // Getters and Setters
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

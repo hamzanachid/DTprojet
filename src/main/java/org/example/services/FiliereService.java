@@ -11,4 +11,5 @@ public interface FiliereService {
     void delete(Long id);
     Filiere getById(Long id);
     List<Filiere> getAll();
+    Filiere getByName(String name);
 }

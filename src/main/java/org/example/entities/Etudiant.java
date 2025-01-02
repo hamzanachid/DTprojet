@@ -1,5 +1,8 @@
 package org.example.entities;
 
+import org.example.builders.EtudiantBuilder;
+import org.example.builders.ModuleBuilder;
+
 import java.util.List;
 
 public class Etudiant {
@@ -78,5 +81,20 @@ public class Etudiant {
 
     public void setNotes(List<Note> notes) {
         this.notes = notes;
+    }
+
+    @Override
+    public String toString() {
+        return "Etudiant{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", matricule='" + matricule + '\'' +
+                ", filiere=" + filiere.getNom() +
+                '}';
+    }
+
+    public static EtudiantBuilder builder() {
+        return new EtudiantBuilder();
     }
 }

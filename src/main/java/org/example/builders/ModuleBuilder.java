@@ -8,14 +8,14 @@ import org.example.enums.Semestre;
 import java.util.List;
 
 public  class ModuleBuilder {
-    private int id;
+    private Long id;
     private String code;
     private String nom;
     private Filiere filiere;
     private Semestre semestre;
     private List<ElementDeModule> elementsDeModule;
 
-    public ModuleBuilder setId(int id) {
+    public ModuleBuilder setId(Long id) {
         this.id = id;
         return this;
     }

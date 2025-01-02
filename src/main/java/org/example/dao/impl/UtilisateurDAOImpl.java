@@ -4,31 +4,19 @@ import org.example.config.DatabaseConnection;
 import org.example.dao.UtilisateurDAO;
 import org.example.entities.Utilisateur;
 import org.example.enums.Role;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class UtilisateurDAOImpl implements UtilisateurDAO {
-
-    private static UtilisateurDAOImpl instance;
-    private final DatabaseConnection connectionManager;
-
-    private UtilisateurDAOImpl(DatabaseConnection connectionManager) {
-        this.connectionManager = connectionManager;
-    }
-
-    public static UtilisateurDAO getInstance(DatabaseConnection connectionManager) {
-        if (instance == null) {
-            instance = new UtilisateurDAOImpl(connectionManager);
-        }
-        return instance;
-    }
+    private final DatabaseConnection connectionManager = DatabaseConnection.getInstance();
+    public static UtilisateurDAO instance = new UtilisateurDAOImpl();
+    private UtilisateurDAOImpl() {}
 
     @Override
     public Utilisateur create(Utilisateur utilisateur) {
-        String sql = "INSERT INTO utilisateurs (nom, prenom, login, motDePasse, role) VALUES (?, ?, ?, ?, ?) RETURNING id";
+        String sql = "INSERT INTO utilisateur (nom, prenom, login, motDePasse, role) VALUES (?, ?, ?, ?, ?) RETURNING id";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -51,7 +39,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Optional<Utilisateur> findById(Long id) {
-        String sql = "SELECT * FROM utilisateurs WHERE id = ?";
+        String sql = "SELECT * FROM utilisateur WHERE id = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -69,7 +57,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Optional<Utilisateur> findByLogin(String login) {
-        String sql = "SELECT * FROM utilisateurs WHERE login = ?";
+        String sql = "SELECT * FROM utilisateur WHERE login = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -87,25 +75,25 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public List<Utilisateur> findAll() {
-        String sql = "SELECT * FROM utilisateurs";
-        List<Utilisateur> utilisateurs = new ArrayList<>();
+        String sql = "SELECT * FROM utilisateur";
+        List<Utilisateur> utilisateur = new ArrayList<>();
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                utilisateurs.add(mapResultSetToUtilisateur(rs));
+                utilisateur.add(mapResultSetToUtilisateur(rs));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error finding all users", e);
         }
-        return utilisateurs;
+        return utilisateur;
     }
 
     @Override
     public List<Utilisateur> findByRole(Role role) {
-        String sql = "SELECT * FROM utilisateurs WHERE role = ?";
-        List<Utilisateur> utilisateurs = new ArrayList<>();
+        String sql = "SELECT * FROM utilisateur WHERE role = ?";
+        List<Utilisateur> utilisateur = new ArrayList<>();
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -113,18 +101,18 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                utilisateurs.add(mapResultSetToUtilisateur(rs));
+                utilisateur.add(mapResultSetToUtilisateur(rs));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error finding users by role", e);
         }
-        return utilisateurs;
+        return utilisateur;
     }
 
     @Override
     public List<Utilisateur> findByNom(String nom) {
-        String sql = "SELECT * FROM utilisateurs WHERE nom = ?";
-        List<Utilisateur> utilisateurs = new ArrayList<>();
+        String sql = "SELECT * FROM utilisateur WHERE nom = ?";
+        List<Utilisateur> utilisateur = new ArrayList<>();
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -132,17 +120,17 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                utilisateurs.add(mapResultSetToUtilisateur(rs));
+                utilisateur.add(mapResultSetToUtilisateur(rs));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error finding users by nom", e);
         }
-        return utilisateurs;
+        return utilisateur;
     }
 
     @Override
     public Utilisateur update(Utilisateur utilisateur) {
-        String sql = "UPDATE utilisateurs SET nom = ?, prenom = ?, login = ?, motDePasse= ?, role = ? WHERE id = ?";
+        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, login = ?, motDePasse= ?, role = ? WHERE id = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -165,7 +153,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public boolean updateMotDePasse(Long id, String newMotDePasse) {
-        String sql = "UPDATE utilisateurs SET motDePasse= ? WHERE id = ?";
+        String sql = "UPDATE utilisateur SET motDePasse= ? WHERE id = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -180,7 +168,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public boolean delete(Long id) {
-        String sql = "DELETE FROM utilisateurs WHERE id = ?";
+        String sql = "DELETE FROM utilisateur WHERE id = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -193,7 +181,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Optional<Utilisateur> authenticate(String login, String motDePasse) {
-        String sql = "SELECT * FROM utilisateurs WHERE login = ? AND motDePasse= ?";
+        String sql = "SELECT * FROM utilisateur WHERE login = ? AND mot_de_passe = ?";
+
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -212,7 +201,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public boolean existsByLogin(String login) {
-        String sql = "SELECT COUNT(*) FROM utilisateurs WHERE login = ?";
+        String sql = "SELECT COUNT(*) FROM utilisateur WHERE login = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -246,7 +235,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
                 rs.getString("nom"),
                 rs.getString("prenom"),
                 rs.getString("login"),
-                rs.getString("motDePasse"),
+                rs.getString("mot_de_passe"),
                 Role.valueOf(rs.getString("role"))
         );
     }

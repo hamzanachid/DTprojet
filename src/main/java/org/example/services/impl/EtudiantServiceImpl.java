@@ -48,4 +48,14 @@ public class EtudiantServiceImpl implements EtudiantService {
     public List<Etudiant> getByFiliere(Long filiereId) {
         return etudiantDao.findByFiliere(filiereId);
     }
+
+    @Override
+    public List<Etudiant> findAll() {
+        return etudiantDao.findAll();
+    }
+
+    @Override
+    public Etudiant getByMatricule(String matricule) {
+        return etudiantDao.getByMatricule(matricule);
+    }
 }

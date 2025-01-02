@@ -20,7 +20,6 @@ public class Filiere {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", code='" + code + '\'' +
-                ", elementDeModules=" + elementDeModules +
                 '}';
     }
 

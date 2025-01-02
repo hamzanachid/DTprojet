@@ -18,8 +18,14 @@ public class ModuleServiceImpl implements ModuleService {
 
     private ModuleServiceImpl() {
     }
+
     @Override
-    public Module create(Module module) throws SQLException {
+    public Module findByName(String name) {
+       return moduleDao.findByName(name);
+    }
+
+    @Override
+    public Module create(Module module) {
         if (module == null) {
             throw new IllegalArgumentException("Filiere cannot be null");
         }

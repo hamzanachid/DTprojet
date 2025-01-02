@@ -3,8 +3,8 @@ package org.example.dao.impl;
 import org.example.config.DatabaseConnection;
 import org.example.dao.EtudiantDao;
 import org.example.dao.NoteDao;
-import org.example.entities.Note;
 import org.example.entities.Etudiant;
+import org.example.entities.Note;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,10 +18,6 @@ public class NoteDaoImpl implements NoteDao {
     public final static NoteDao instance = new NoteDaoImpl();
 
     private NoteDaoImpl() {}
-
-    public static NoteDao getInstance() {
-        return instance;
-    }
 
     @Override
     public Note create(Note note) {

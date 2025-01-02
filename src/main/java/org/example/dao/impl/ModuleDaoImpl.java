@@ -22,10 +22,29 @@ public class ModuleDaoImpl implements ModuleDao {
     }
 
     @Override
-    public Module create(Module module) throws SQLException {
+    public Module findByName(String name) {
+        String sql = "SELECT * FROM modules WHERE nom = ?";
+        Module module = null;
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, name);
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                module = mapResultSetToModule(resultSet);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return module;
+    }
+
+    @Override
+    public Module create(Module module) {
         String sql = "INSERT INTO modules (code, nom, semester,filiere_id) VALUES (?, ? , ?,?) RETURNING id;";
-        Connection connection = connectionManager.getConnection();
-        try   {
+        try (Connection connection = connectionManager.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, module.getCode());
             statement.setString(2, module.getNom());
@@ -36,14 +55,12 @@ public class ModuleDaoImpl implements ModuleDao {
             if (rowsAffected > 0) {
                 ResultSet generatedKeys = statement.getGeneratedKeys();
                 if (generatedKeys.next()) {
-                    module.setId(generatedKeys.getInt(1));
+                    module.setId(generatedKeys.getLong(1));
                 }
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
-            connection.close();
         }
         return module;
     }
@@ -58,7 +75,7 @@ public class ModuleDaoImpl implements ModuleDao {
             statement.setString(2, module.getNom());
             statement.setString(3, module.getSemestre().name());
             statement.setLong(4, module.getFiliere().getId());
-            statement.setInt(5, module.getId());
+            statement.setLong(5, module.getId());
 
             statement.executeUpdate();
 
@@ -122,7 +139,7 @@ public class ModuleDaoImpl implements ModuleDao {
     private Module mapResultSetToModule(ResultSet resultSet) throws SQLException {
         Module module = new Module();
         System.out.println(resultSet.getLong("filiere_id"));
-        module.setId(resultSet.getInt("id"));
+        module.setId(resultSet.getLong("id"));
         module.setCode(resultSet.getString("code"));
         module.setNom(resultSet.getString("nom"));
 

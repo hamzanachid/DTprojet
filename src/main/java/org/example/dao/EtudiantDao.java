@@ -11,4 +11,6 @@ public interface EtudiantDao {
     boolean delete(Long id);
     Etudiant findById(Long id);
     List<Etudiant> findByFiliere(Long filiereId);
+    List<Etudiant> findAll();
+    Etudiant getByMatricule(String matricule);
 }

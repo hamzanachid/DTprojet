@@ -3,6 +3,9 @@ package org.example.dao.impl;
 import org.example.config.DatabaseConnection;
 import org.example.dao.EtudiantDao;
 import org.example.entities.Etudiant;
+import org.example.services.FiliereService;
+import org.example.services.impl.FiliereServiceImpl;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +16,7 @@ import java.util.List;
 public class EtudiantDaoImpl implements EtudiantDao {
     private final DatabaseConnection connectionManager = DatabaseConnection.getInstance();
     public final static EtudiantDao instance = new EtudiantDaoImpl();
-
+    private final FiliereService filiereService = FiliereServiceImpl.instance;
     private EtudiantDaoImpl() {
     }
 
@@ -169,14 +172,72 @@ public class EtudiantDaoImpl implements EtudiantDao {
         return etudiantList;
     }
 
+    @Override
+    public List<Etudiant> findAll() {
+        String sql = "SELECT * FROM etudiant";
+        Connection conn;
+        List<Etudiant> etudiantList = new ArrayList<>();
+        try {
+            conn = connectionManager.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+        try
+        {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                etudiantList.add(mapResultSetToEtudiant(rs));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating user", e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return etudiantList;
+    }
+
+    @Override
+    public Etudiant getByMatricule(String matricule) {
+        String sql = "SELECT * etudiant WHERE matricule = ?";
+        Connection conn;
+        Etudiant etudiant = null;
+        try {
+            conn = connectionManager.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+        try
+        {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, matricule);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                etudiant = mapResultSetToEtudiant(rs);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating user", e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return etudiant;
+    }
+
     private Etudiant mapResultSetToEtudiant(ResultSet rs) throws SQLException {
-        // TODO : I need to replace "null" by filiere.getById
         return new Etudiant(
                 rs.getLong("id"),
                 rs.getString("first_name"),
                 rs.getString("last_name"),
                 rs.getString("matricule"),
-                null
+                filiereService.getById(rs.getLong("filiere_id"))
         );
     }
 }

@@ -140,6 +140,11 @@ public class ElementDeModuleDaoImpl implements ElementDeModuleDAO {
         return elementDeModules;
     }
 
+    @Override
+    public void updateModuleAverage(Long moduleId, double moduleAverage) {
+
+    }
+
     private ElementDeModule mapToElementDeModuleDao(ResultSet resultSet) throws SQLException {
         ElementDeModule elementDeModule = new ElementDeModule();
         elementDeModule.setId(resultSet.getLong("id"));
