@@ -1,13 +1,13 @@
 package org.example.builders;
 
 import org.example.entities.Utilisateur;
-import org.example.enums.Role;
+import org.example.enums.EnumRole;
 
 public class UtilisateurBuilder {
     private Long id;
     private String login;
     private String motDePasse;
-    private Role role;
+    private EnumRole role;
 
     public UtilisateurBuilder withId(Long id) {
         this.id = id;
@@ -24,7 +24,7 @@ public class UtilisateurBuilder {
         return this;
     }
 
-    public UtilisateurBuilder withRole(Role role) {
+    public UtilisateurBuilder withRole(EnumRole role) {
         this.role = role;
         return this;
     }

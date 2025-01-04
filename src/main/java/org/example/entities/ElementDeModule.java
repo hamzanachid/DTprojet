@@ -9,27 +9,29 @@ import java.util.List;
 import java.util.Objects;
 
 public class ElementDeModule {
-    private int id;
+    private Long id;
     private Module module;
+    private Filiere filiere;
     private String nom;
     private double coefficient;
     private List<ModaliteEvaluation> modalitesEvaluation;
 
     public ElementDeModule() {}
 
-    public ElementDeModule(int id, Module module, String nom, double coefficient, List<ModaliteEvaluation> modalitesEvaluation) {
+    public ElementDeModule(Long id, Module module, String nom, double coefficient, List<ModaliteEvaluation> modalitesEvaluation,Filiere filiere) {
         this.id = id;
         this.module = module;
         this.nom = nom;
         this.coefficient = coefficient;
         this.modalitesEvaluation = modalitesEvaluation;
+        this.filiere=filiere;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,6 +41,14 @@ public class ElementDeModule {
 
     public void setModule(Module module) {
         this.module = module;
+    }
+
+    public Filiere getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(Filiere filiere) {
+        this.filiere = filiere;
     }
 
     public String getNom() {
@@ -73,6 +83,7 @@ public class ElementDeModule {
                 ", nom='" + nom + '\'' +
                 ", coefficient=" + coefficient +
                 ", modalitesEvaluation=" + modalitesEvaluation +
+                ", filiere=" + filiere +
                 '}';
     }
 

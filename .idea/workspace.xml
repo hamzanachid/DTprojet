@@ -6,12 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="3894e6a4-5907-4311-8bcb-0905c1c3e93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ProfesseurDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ProfesseurDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ProfesseurDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ProfesseurDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plan" beforeDir="false" afterPath="$PROJECT_DIR$/plan" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/ElementDeModuleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/ElementDeModuleBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/FiliereBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/FiliereBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/ModuleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/ModuleBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/UtilisateurBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/UtilisateurBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/FiliereDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/FiliereDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/FiliereDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/FiliereDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ElementDeModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ElementDeModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Etudiant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Etudiant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Filiere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Filiere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ModaliteEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ModaliteEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Note.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Professeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Professeur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Utilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/ModaliteEvaluationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/ModaliteEvaluationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/FiliereService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/FiliereService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/UtilisateurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/UtilisateurService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/FiliereServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/FiliereServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/UtilisateurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/UtilisateurServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dao/ProfesseurDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/ProfesseurDaoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +43,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -36,14 +54,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;grainme&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/hamzanachid/DTprojet.git&quot;,
+    &quot;accountId&quot;: &quot;e86e2aee-48a0-44af-9788-4af9b65fd4f5&quot;
+  }
+}</component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2qivHAj7lwygpRWMW9Dt9mJ0CvO" />
   <component name="ProjectLevelVcsManager">
@@ -73,7 +100,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/professor-layer&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging feature/professor-layer&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
@@ -83,6 +110,22 @@
   }
 }</component>
   <component name="RunManager" selected="JUnit.ProfesseurDaoTest.testCreateProfesseur">
+    <configuration name="FiliereServiceTest.testCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DTProjet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.filiereService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="services.filiereService" />
+      <option name="MAIN_CLASS_NAME" value="services.filiereService.FiliereServiceTest" />
+      <option name="METHOD_NAME" value="testCreate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ProfesseurDaoTest.testAuthenticateProfesseurNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DTProjet" />
       <extension name="coverage">
@@ -163,19 +206,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="DTprojet" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="DTprojet" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ProfesseurDaoTest.testCreateProfesseur" />
@@ -188,13 +218,63 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="errors but okay">
+      <option name="closed" value="true" />
+      <created>1735786987245</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1735786987245</updated>
+    </task>
     <task active="true" id="Default" summary="Default task">
       <changelist id="3894e6a4-5907-4311-8bcb-0905c1c3e93c" name="Changes" comment="" />
-      <created>1735158119994</created>
+      <created>1735804560767</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1735158119994</updated>
+      <updated>1735804560767</updated>
     </task>
+    <task id="LOCAL-00002" summary="errors but okay">
+      <option name="closed" value="true" />
+      <created>1735809199828</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735809199828</updated>
+    </task>
+    <task id="LOCAL-00003" summary="errors but okay">
+      <option name="closed" value="true" />
+      <created>1735809315044</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735809315044</updated>
+    </task>
+    <task id="LOCAL-00004" summary="A lot of stuff, errors fixed, cli added, test!">
+      <option name="closed" value="true" />
+      <created>1735991744659</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735991744659</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge pull request #1 from hamzanachid/feat-HamzaJob&#10;&#10;Feat hamza job" />
+    <MESSAGE value="errors but okay" />
+    <MESSAGE value="A lot of stuff, errors fixed, cli added, test!" />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot of stuff, errors fixed, cli added, test!" />
   </component>
 </project>

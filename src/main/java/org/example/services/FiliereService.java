@@ -7,4 +7,9 @@ import java.util.List;
 
 public interface FiliereService {
     Filiere create(Filiere filiere);
+    void update(Filiere filiere);
+    void delete(Long id);
+    Filiere getById(Long id);
+    List<Filiere> getAll();
+    Filiere getByName(String name);
 }

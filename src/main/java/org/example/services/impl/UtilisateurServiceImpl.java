@@ -1,119 +1,113 @@
 package org.example.services.impl;
 
-import org.example.dao.UtilisateurDao;
+import org.example.dao.UtilisateurDAO;
+import org.example.dao.impl.UtilisateurDAOImpl;
 import org.example.entities.Utilisateur;
-import org.example.enums.Role;
+import org.example.enums.EnumRole;
 import org.example.services.UtilisateurService;
 import org.example.builders.UtilisateurBuilder;
-
 import java.util.List;
 import java.util.Optional;
 
 public class UtilisateurServiceImpl implements UtilisateurService {
-  private static UtilisateurServiceImpl instance;
+    private static final UtilisateurDAO utilisateurDAO = UtilisateurDAOImpl.instance;
+    public static final UtilisateurService instance = new UtilisateurServiceImpl();
 
-  private final UtilisateurDao utilisateurDAO;
+    private UtilisateurServiceImpl() {}
 
-  public static UtilisateurService getInstance(UtilisateurDao utilisateurDao) {
-    if (instance == null)
-      instance = new UtilisateurServiceImpl(utilisateurDao);
-    return instance;
-  }
+    @Override
+    public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role) {
+        Utilisateur utilisateur = new UtilisateurBuilder()
+                .withNom(nom)
+                .withPrenom(prenom)
+                .withLogin(login)
+                .withMotDePasse(motDePasse)
+                .withRole(role)
+                .build();
 
-  private UtilisateurServiceImpl(UtilisateurDao utilisateurDAO) {
-    this.utilisateurDAO = utilisateurDAO;
-  }
+        return utilisateurDAO.create(utilisateur);
+    }
 
-  @Override
-  public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
-    Utilisateur utilisateur = new UtilisateurBuilder()
-      .withLogin(login)
-      .withMotDePasse(motDePasse)
-      .withRole(role)
-      .build();
+    @Override
+    public Optional<Utilisateur> getUtilisateurById(Long id) {
+        return utilisateurDAO.findById(id);
+    }
 
-    return utilisateurDAO.create(utilisateur);
-  }
+    @Override
+    public Optional<Utilisateur> getUtilisateurByLogin(String login) {
+        return utilisateurDAO.findByLogin(login);
+    }
 
-  @Override
-  public Optional<Utilisateur> getUtilisateurById(Long id) {
-    return utilisateurDAO.findById(id);
-  }
+    @Override
+    public List<Utilisateur> getAllUtilisateurs() {
+        return utilisateurDAO.findAll();
+    }
 
-  @Override
-  public Optional<Utilisateur> getUtilisateurByLogin(String login) {
-    return utilisateurDAO.findByLogin(login);
-  }
+    @Override
+    public List<Utilisateur> getUtilisateursByRole(EnumRole role) {
+        return utilisateurDAO.findByRole(role);
+    }
 
-  @Override
-  public List<Utilisateur> getAllUtilisateurs() {
-    return utilisateurDAO.findAll();
-  }
+    @Override
+    public List<Utilisateur> getUtilisateursByNom(String nom) {
+        return utilisateurDAO.findByNom(nom);
+    }
 
-  @Override
-  public List<Utilisateur> getUtilisateursByRole(Role role) {
-    return utilisateurDAO.findByRole(role);
-  }
+    @Override
+    public Utilisateur updateUtilisateur(Utilisateur utilisateur) {
+        return utilisateurDAO.update(utilisateur);
+    }
 
-  @Override
-  public List<Utilisateur> getUtilisateursByNom(String nom) {
-    return utilisateurDAO.findByNom(nom);
-  }
+    @Override
+    public boolean updateMotDePasse(Long id, String oldMotDePasse, String newMotDePasse) {
+        return false;
+    }
 
-  @Override
-  public Utilisateur updateUtilisateur(Utilisateur utilisateur) {
-    return utilisateurDAO.update(utilisateur);
-  }
+    @Override
+    public boolean updateMotDePasse(Long id, String newMotDePasse) {
+        return utilisateurDAO.updateMotDePasse(id, newMotDePasse);
+    }
 
-  @Override
-  public boolean updateMotDePasse(Long id, String oldMotDePasse, String newMotDePasse) {
-    return false;
-  }
+    @Override
+    public boolean deleteUtilisateur(Long id) {
+        return utilisateurDAO.delete(id);
+    }
 
-  @Override
-  public boolean updateMotDePasse(Long id, String newMotDePasse) {
-    return utilisateurDAO.updateMotDePasse(id, newMotDePasse);
-  }
+    @Override
+    public Optional<Utilisateur> authenticateUtilisateur(String login, String motDePasse) {
+        return utilisateurDAO.authenticate(login, motDePasse);
+    }
 
-  @Override
-  public boolean deleteUtilisateur(Long id) {
-    return utilisateurDAO.delete(id);
-  }
+    @Override
+    public Optional<Utilisateur> loginUtilisateur(String login, String motDePasse) {
+        return utilisateurDAO.authenticate(login, motDePasse);
+    }
 
-  @Override
-  public boolean authenticateUtilisateur(String login, String motDePasse) {
-    Optional<Utilisateur> utilisateur = utilisateurDAO.authenticate(login, motDePasse);
-    return utilisateur.isPresent();
-  }
+    @Override
+    public boolean isLoginAvailable(String login) {
+        return !utilisateurDAO.existsByLogin(login);
+    }
 
-  @Override
-  public Optional<Utilisateur> loginUtilisateur(String login, String motDePasse) {
-    return utilisateurDAO.authenticate(login, motDePasse);
-  }
+    @Override
+    public boolean validateMotDePasse(String motDePasse) {
+        return motDePasse != null && motDePasse.length() >= 8;
+    }
 
-  @Override
-  public boolean isLoginAvailable(String login) {
-    return !utilisateurDAO.existsByLogin(login);
-  }
+    @Override
+    public List<Utilisateur> saveAllUtilisateurs(List<Utilisateur> utilisateurs) {
+        return utilisateurDAO.saveAll(utilisateurs);
+    }
 
-  @Override
-  public boolean validateMotDePasse(String motDePasse) {
-    return motDePasse != null && motDePasse.length() >= 8;
-  }
+    @Override
+    public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role) {
+        Utilisateur utilisateur = new UtilisateurBuilder()
+                .withNom(nom)
+                .withPrenom(prenom)
+                .withLogin(login)
+                .withMotDePasse(motDePasse)
+                .withRole(role)
+                .build();
 
-  @Override
-  public List<Utilisateur> saveAllUtilisateurs(List<Utilisateur> utilisateurs) {
-    return utilisateurDAO.saveAll(utilisateurs);
-  }
-
-  @Override
-  public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
-    Utilisateur utilisateur = new UtilisateurBuilder()
-      .withLogin(login)
-      .withMotDePasse(motDePasse)
-      .withRole(role)
-      .build();
-
-    return utilisateurDAO.create(utilisateur);
-  }
+        return utilisateurDAO.create(utilisateur);
+    }
 }
