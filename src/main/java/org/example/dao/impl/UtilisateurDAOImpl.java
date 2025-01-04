@@ -16,7 +16,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Utilisateur create(Utilisateur utilisateur) {
-        String sql = "INSERT INTO utilisateur (nom, prenom, login, motDePasse, role) VALUES (?, ?, ?, ?, ?) RETURNING id";
+        String sql = "INSERT INTO utilisateur (nom, prenom, login, mot_de_passe, role) VALUES (?, ?, ?, ?, ?) RETURNING id";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -130,7 +130,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Utilisateur update(Utilisateur utilisateur) {
-        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, login = ?, motDePasse= ?, role = ? WHERE id = ?";
+        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, login = ?, mot_de_passe = ?, role = ? WHERE id = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -153,7 +153,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public boolean updateMotDePasse(Long id, String newMotDePasse) {
-        String sql = "UPDATE utilisateur SET motDePasse= ? WHERE id = ?";
+        String sql = "UPDATE utilisateur SET mot_de_passe = ? WHERE id = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -181,7 +181,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Optional<Utilisateur> authenticate(String login, String motDePasse) {
-        String sql = "SELECT * FROM utilisateur WHERE login = ? AND motdepasse = ?";
+        String sql = "SELECT * FROM utilisateur WHERE login = ? AND mot_de_passe = ?";
 
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -235,7 +235,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
                 rs.getString("nom"),
                 rs.getString("prenom"),
                 rs.getString("login"),
-                rs.getString("motdepasse"),
+                rs.getString("mot_de_passe"),
                 EnumRole.valueOf(rs.getString("role"))
         );
     }
