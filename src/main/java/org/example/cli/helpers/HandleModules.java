@@ -3,6 +3,7 @@ package org.example.cli.helpers;
 import org.example.entities.Filiere;
 import org.example.entities.Module;
 import org.example.enums.Semestre;
+
 import java.util.List;
 import static org.example.cli.helpers.GlobalVars.*;
 
@@ -13,7 +14,8 @@ public class HandleModules {
         String semester = prompt("Enter semester (S1-S5)");
         String nameFiliere = prompt("Enter filiere name");
         Filiere filiere = filiereService.getByName(nameFiliere);
-        moduleService.create(org.example.entities.Module.builder()
+        System.err.println(filiere);
+        moduleService.create(Module.builder()
                 .setNom(name)
                 .setCode(code)
                 .setSemestre(Semestre.valueOf(semester))
@@ -36,8 +38,11 @@ public class HandleModules {
 
     private static void updateModule() {
         Long id = Long.valueOf(prompt("Id of the module to be updated"));
-        Filiere filiere = filiereService.getById(Long.valueOf(prompt("New Filiere of the module")));
+        Filiere filiere = filiereService.getById(Long.valueOf(prompt("New Filiere of the module, type ID")));
+        Module module = moduleService.findById(id);
         Module newModule = Module.builder()
+                .setId(id)
+                .setCode(module.getCode())
                 .setNom(prompt("New name?"))
                 .setFiliere(filiere)
                 .setSemestre(Semestre.valueOf(prompt("Semestre?")))

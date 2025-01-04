@@ -55,6 +55,23 @@ public class ModaliteEvaluationDaoImpl implements ModaliteEvaluationDao {
     }
 
     @Override
+    public ModaliteEvaluation findById(Long id) {
+        ModaliteEvaluation modaliteEvaluations = null;
+        try(Connection connection = connectionManager.getConnection()) {
+            String sql = "SELECT * FROM ModaliteEvaluation WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                modaliteEvaluations = mapResultSetToModalite(resultSet);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return modaliteEvaluations;
+    }
+
+    @Override
     public List<ModaliteEvaluation> findByElement(ElementDeModule elementDeModule) {
         List<ModaliteEvaluation> modaliteEvaluations = new ArrayList<>();
         try(Connection connection = connectionManager.getConnection()) {
@@ -81,7 +98,6 @@ public class ModaliteEvaluationDaoImpl implements ModaliteEvaluationDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override

@@ -1,17 +1,28 @@
 package org.example.entities;
 
-import org.example.enums.EnumRole;
-
 import java.util.List;
 
-public class Professeur extends Utilisateur {
+public class Professeur {
     private Long id;
+    private String nom;
+    private String prenom;
     private String specialite;
     private String code;
-    private Utilisateur compteUtilisateur;
-
     private List<ElementDeModule> elementsDeModule;
+    private Utilisateur utilisateur;
 
+    public Professeur(Long id, String nom, String prenom, String specialite, String code, List<ElementDeModule> elementsDeModule, Utilisateur utilisateur) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.specialite = specialite;
+        this.code = code;
+        this.elementsDeModule = elementsDeModule;
+        this.utilisateur = utilisateur;
+    }
+
+    public Professeur() {
+    }
 
     public Long getId() {
         return id;
@@ -19,6 +30,22 @@ public class Professeur extends Utilisateur {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public String getSpecialite() {
@@ -37,15 +64,6 @@ public class Professeur extends Utilisateur {
         this.code = code;
     }
 
-    public Utilisateur getCompteUtilisateur() {
-        return compteUtilisateur;
-    }
-
-    public void setCompteUtilisateur(Utilisateur compteUtilisateur) {
-        this.compteUtilisateur = compteUtilisateur;
-    }
-
-
     public List<ElementDeModule> getElementsDeModule() {
         return elementsDeModule;
     }
@@ -54,28 +72,11 @@ public class Professeur extends Utilisateur {
         this.elementsDeModule = elementsDeModule;
     }
 
-    public Professeur() {
-
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
-    public Professeur(Long id, String nom, String prenom, String login, String motDePasse, EnumRole role, Long id1, String specialite, String code, Utilisateur compteUtilisateur, List<Module> modules, List<ElementDeModule> elementsDeModule) {
-        super(id, nom, prenom, login, motDePasse, role);
-        this.id = id1;
-        this.specialite = specialite;
-        this.code = code;
-        this.compteUtilisateur = compteUtilisateur;
-        this.elementsDeModule = elementsDeModule;
-    }
-
-    @Override
-    public String toString() {
-
-        return "Professeur{" +
-                "id=" + id +
-                ", specialite='" + specialite + '\'' +
-                ", code='" + code + '\'' +
-                ", compteUtilisateur=" + compteUtilisateur +
-                ", elementsDeModule=" + elementsDeModule +
-                '}';
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 }

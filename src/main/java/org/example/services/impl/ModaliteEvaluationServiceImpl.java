@@ -15,6 +15,11 @@ public class ModaliteEvaluationServiceImpl implements ModaliteEvaluationService 
     }
 
     @Override
+    public ModaliteEvaluation findById(Long id) {
+        return modaliteEvaluationDao.findById(id);
+    }
+
+    @Override
     public ModaliteEvaluation create(ModaliteEvaluation Modalite, ElementDeModule elementDeModule) {
         return modaliteEvaluationDao.create(Modalite, elementDeModule);
     }

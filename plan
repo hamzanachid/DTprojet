@@ -1,12 +1,12 @@
 are we updates? -> push
 
 Marouane:
-- refactoring dyl "switch case", create class, private helpers, static output(function)
+- refactoring dyl "switch case", create class, private helpers, static output(function) - Done
 - nkemel menu admin
-- Modalité d'eval
-- database connection, config to .yml
+- Modalité d'eval - Done
+- database connection, config to .yml - Done
 - Test Etudiant
-- DAO/Service : CRUD + findByElementId
+- DAO/Service : CRUD + findByElementId - Done
 
 TASK /
 - Design Patterns

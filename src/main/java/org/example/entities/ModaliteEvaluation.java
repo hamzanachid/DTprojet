@@ -52,6 +52,16 @@ public class ModaliteEvaluation {
         this.coefficient = coefficient;
     }
 
+    @Override
+    public String toString() {
+        return "ModaliteEvaluation{" +
+                "id=" + id +
+                ", elementDeModule=" + elementDeModule +
+                ", modaliteEvaluationType=" + modaliteEvaluationType +
+                ", coefficient=" + coefficient +
+                '}';
+    }
+
     public static ModaliteEvaluationBuilder builder() {
         return new ModaliteEvaluationBuilder();
     }

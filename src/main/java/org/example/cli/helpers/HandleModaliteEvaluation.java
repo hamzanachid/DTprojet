@@ -1,13 +1,9 @@
 package org.example.cli.helpers;
 
 import org.example.entities.ElementDeModule;
-import org.example.entities.Filiere;
 import org.example.entities.ModaliteEvaluation;
 import org.example.enums.ModaliteEvaluationType;
-import org.example.enums.Semestre;
-
 import static org.example.cli.helpers.GlobalVars.*;
-import static org.example.cli.helpers.GlobalVars.moduleService;
 
 public class HandleModaliteEvaluation {
     private static void addModalite() {
@@ -25,15 +21,26 @@ public class HandleModaliteEvaluation {
     }
 
     private static void listModalite() {
-        // TODO
+        modaliteEvaluationService.findAll().forEach(c -> System.out.println(c.toString()));
     }
 
     private static void deleteModalite() {
-        // TODO
+        Long id = Long.valueOf(prompt("Type the Modalite id"));
+        modaliteEvaluationService.delete(id);
+        System.out.println("Modalite with " + id + " is deleted");
     }
 
     private static void updateModalite() {
-       // TODO
+        Long id = Long.valueOf(prompt("what Modalite to change, type id?"));
+        Double coefficient = Double.valueOf(prompt("Type the new coeffecient"));
+        ElementDeModule element = elementDeModuleService.findByName(prompt("Element name"));
+        ModaliteEvaluation oldModaliteEvaluation = modaliteEvaluationService.findById(id);
+        ModaliteEvaluation modaliteEvaluation = ModaliteEvaluation.builder()
+                .setModaliteEvaluationType(oldModaliteEvaluation.getModaliteEvaluationType())
+                .setCoefficient(coefficient)
+                .setElementDeModule(element)
+                .build();
+        modaliteEvaluationService.update(id, modaliteEvaluation);
     }
 
     public static void handleModaliteEvaluation() {
