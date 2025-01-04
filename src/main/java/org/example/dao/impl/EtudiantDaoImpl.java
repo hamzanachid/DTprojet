@@ -171,6 +171,50 @@ public class EtudiantDaoImpl implements EtudiantDao {
         }
         return etudiantList;
     }
+    @Override
+    public List<Etudiant> findEtudiantByElement(Long element_id) {
+        String sql = "SELECT \n" +
+                "    e.id  AS  id,\n" +
+                "    e.nom AS  nom,\n" +
+                "    e.prenom AS  prenom,\n" +
+                "    e.matricule AS matricule ,\n" +
+                "\te.filiere_id as filiere_id\n" +
+                "FROM \n" +
+                "    Etudiant e\n" +
+                "JOIN \n" +
+                "    EtudiantModule em ON e.id = em.etudiant_id\n" +
+                "JOIN \n" +
+                "    Modules m ON em.module_id = m.id\n" +
+                "JOIN \n" +
+                "    ElementDeModule edm ON edm.module_id = m.id\n" +
+                "WHERE \n" +
+                "    edm.id = ?;";
+        Connection conn;
+        List<Etudiant> etudiantList = new ArrayList<>();
+        try {
+            conn = connectionManager.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+        try
+        {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setLong(1, element_id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                etudiantList.add(mapResultSetToEtudiant(rs));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating user", e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return etudiantList;
+    }
 
     @Override
     public List<Etudiant> findAll() {

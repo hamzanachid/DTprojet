@@ -2,8 +2,10 @@ package org.example.cli.helpers;
 
 import org.example.entities.*;
 import org.example.services.ElementDeModuleService;
+import org.example.services.EtudiantService;
 import org.example.services.NoteService;
 import org.example.services.impl.ElementsDeModuleServiceImpl;
+import org.example.services.impl.EtudiantServiceImpl;
 import org.example.services.impl.NoteServiceImpl;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class HandleNotes {
     private static final ElementDeModuleService elementDeModuleService= ElementsDeModuleServiceImpl.instance;
     private static final ModaliteEvaluationService modaliteEvaliationService= ModaliteEvaluationServiceImpl.instance;
     private static final NoteService noteService= NoteServiceImpl.getInstance();
+    private static final EtudiantService etudiantService= EtudiantServiceImpl.instance;
 
     public static void handleElementNotes(Professeur professeur) {
         while (true) {
@@ -135,7 +138,7 @@ public class HandleNotes {
 
     private static void addNotes(ModaliteEvaluation modaliteEvaluation, ElementDeModule element) {
         List<Note> notes = new ArrayList<>();
-        List<Etudiant> students = elementDeModuleService.findEtudiantsByElement(element.getId());
+        List<Etudiant> students = etudiantService.findEtudiantByElement(element.getId());
 
         students.forEach(student -> {
             System.out.println("Student: " + student.getLastName());

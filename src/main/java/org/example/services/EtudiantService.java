@@ -8,6 +8,7 @@ public interface EtudiantService {
     void update(Etudiant etudiant, Etudiant newEtudiant);
     void delete(Long id);
     Etudiant getById(Long id);
+    List<Etudiant> findEtudiantByElement(Long element_id);
     List<Etudiant> getByFiliere(Long filiereId);
     List<Etudiant> findAll();
     Etudiant getByMatricule(String matricule);

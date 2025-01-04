@@ -36,10 +36,11 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public void addNote(Note note) {
-        if (note.getNote() < 0 || note.getNote() > 20) {
-            throw new RuntimeException("Note must be between 0 and 20");
-        }
-        draftNotes.add(note);
+        noteDao.create(note);
+    }
+    @Override
+    public void updateNote(Note note) {
+        noteDao.update(note);
     }
 
     @Override

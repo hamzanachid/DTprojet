@@ -6,6 +6,7 @@ import java.util.List;
 public interface NoteService {
 
     void addNote(Note note);
+    void updateNote(Note note);
 
     void saveDraft();
 
