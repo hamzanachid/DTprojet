@@ -48,8 +48,7 @@ public class Main {
         if (maybeUtilsateur.isPresent()){
             return maybeUtilsateur.get();
         }
-        // TODO - maybe throws smtg
-        return null;
+        throw new RuntimeException("Utilisateur not found!");
     }
 
     private static void handleLogin() {

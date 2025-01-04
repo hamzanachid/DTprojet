@@ -2,6 +2,8 @@ package org.example.cli.helpers;
 
 import org.example.entities.Etudiant;
 import org.example.entities.Filiere;
+
+import java.io.File;
 import java.util.List;
 import static org.example.cli.helpers.GlobalVars.*;
 
@@ -49,6 +51,7 @@ public class HandleEtudiants {
                 .setFirstName(newFirstName)
                 .setLastName(lastLastName)
                 .setMatricule(matricule)
+                .setFiliere(oldEtudiant.getFiliere())
                 .build();
         etudiantService.update(oldEtudiant, newEtudiant);
         System.out.println("Etudiant Updated: "+ newEtudiant.toString());
@@ -75,6 +78,7 @@ public class HandleEtudiants {
                     break;
                 case "3":
                     updateEtudiant();
+                    break;
                 case "4":
                     deleteEtudiant();
                     break;
