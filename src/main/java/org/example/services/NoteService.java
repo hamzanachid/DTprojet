@@ -14,6 +14,7 @@ public interface NoteService {
     boolean validateElement(Long elementId, boolean confirmZeroTwenty);
 
     List<Note> getNotesByElement(Long elementId);
+    List<Note> getNotesByModalite(Long modliteId);
 
     double getElementAverage(Long elementId);
 

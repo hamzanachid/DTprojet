@@ -120,6 +120,27 @@ public class ElementDeModuleDaoImpl implements ElementDeModuleDAO {
     }
 
     @Override
+    public List<ElementDeModule> findByProfId(Long filiereId) {
+        String query = "SELECT * FROM elementDeModule where prof_id=?;";
+        List<ElementDeModule> elementDeModules = new ArrayList<>();
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query);
+
+
+        ) {
+
+            statement.setLong(1, filiereId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                elementDeModules.add(mapToElementDeModuleDao(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return elementDeModules;
+    }
+
+    @Override
     public List<ElementDeModule> findByModuleId(Long moduleId) {
         String query = "SELECT * FROM elementDeModule where module_id=?;";
         List<ElementDeModule> elementDeModules = new ArrayList<>();

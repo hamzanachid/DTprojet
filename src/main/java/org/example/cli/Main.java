@@ -2,14 +2,18 @@ package org.example.cli;
 
 import java.io.IOException;
 import java.util.*;
-import org.example.entities.Etudiant;
-import org.example.entities.Filiere;
+
+import org.example.entities.*;
 import org.example.entities.Module;
-import org.example.entities.Utilisateur;
+import org.example.enums.EnumRole;
 import org.example.enums.Semestre;
 import org.jline.reader.*;
 import org.jline.terminal.*;
+
+import javax.management.relation.Role;
+
 import static org.example.cli.helpers.GlobalVars.*;
+import static org.example.cli.helpers.HandleNotes.handleElementNotes;
 
 @SuppressWarnings("unused")
 public class Main {
@@ -54,8 +58,12 @@ public class Main {
         Utilisateur utilisateur = ConnectUtilisateur(login, password);
         if (utilisateur != null) {
             currentRole = utilisateur.getRole().name();
+            currentUser=utilisateur;
             isLoggedIn = true;
             System.out.println("Logged in as " + currentRole);
+            if(currentRole.equals(EnumRole.PROFESSOR.name())){
+
+            }
         } else {
             System.out.println("Invalid credentials!");
         }
@@ -73,13 +81,11 @@ public class Main {
                     "6. Elements de module",
                     "7. logout"
             );
-        } else if("PROF".equals(currentRole)){
+        } else if("PROFESSOR".equals(currentRole)){
             options = Arrays.asList(
-                    "1. Enter Grades",
-                    "2. View Statistics",
-                    "3. Export Reports",
-                    "4. Change Password",
-                    "5. Logout"
+                    "1. Choose Elements",
+                    "2. Change Password",
+                    "3. Logout"
             );
         }
         System.out.println("\nMain Menu");
@@ -101,11 +107,9 @@ public class Main {
             }
         } else {
             switch (choice) {
-                case "1": handleGrades(); break;
-                case "2": showMessage("View Statistics"); break;
-                case "3": showMessage("Export Reports"); break;
-                case "4": handlePasswordChange(); break;
-                case "5": handleLogout(); break;
+                case "1": handleElementNotes(new Professeur()); break;
+                case "2": handlePasswordChange(); break;
+                case "3": handleLogout(); break;
             }
         }
         return true;
@@ -295,7 +299,7 @@ public class Main {
         System.out.println("Logged out successfully");
     }
 
-    private static String prompt(String message) {
+    public static String prompt(String message) {
         return reader.readLine(message + ": ");
     }
 

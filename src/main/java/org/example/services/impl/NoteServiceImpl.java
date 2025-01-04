@@ -84,6 +84,11 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
+    public List<Note> getNotesByModalite(Long modliteId) {
+        return noteDao.getByModalite(modliteId);
+    }
+
+    @Override
     public double getElementAverage(Long elementId) {
         return noteDao.calculateElementAverage(elementId);
     }

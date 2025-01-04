@@ -18,7 +18,7 @@ public class ModaliteEvaluation {
         this.coefficient = coefficient;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

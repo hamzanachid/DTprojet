@@ -67,4 +67,13 @@ public class ElementsDeModuleServiceImpl implements ElementDeModuleService {
         }
         return elementDeModules;
     }
+
+    @Override
+    public List<ElementDeModule> findByProfId(Long id) {
+        List<ElementDeModule> elementDeModules = elementDeModuleDAO.findByProfId(id);
+        if (elementDeModules == null || elementDeModules.isEmpty()) {
+            throw new IllegalStateException("No element De Modules found in the database");
+        }
+        return elementDeModules;
+    }
 }

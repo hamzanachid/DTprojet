@@ -1,5 +1,6 @@
 package org.example.cli.helpers;
 
+import org.example.entities.Utilisateur;
 import org.example.services.EtudiantService;
 import org.example.services.FiliereService;
 import org.example.services.ModuleService;
@@ -18,6 +19,7 @@ public class GlobalVars {
     public static PrintWriter writer;
     public static boolean isLoggedIn = false;
     public static String currentRole = null;
+    public static Utilisateur currentUser = null;
     public static final UtilisateurService utilisateurService = UtilisateurServiceImpl.instance;
     public static final FiliereService filiereService = FiliereServiceImpl.instance;
     public static final ModuleService moduleService = ModuleServiceImpl.instance;
