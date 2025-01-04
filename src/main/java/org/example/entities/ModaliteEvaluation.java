@@ -20,7 +20,8 @@ public class ModaliteEvaluation {
         this.coefficient = coefficient;
     }
 
-    public Long getId() {
+ 
+    public Long getId() { 
         return id;
     }
 

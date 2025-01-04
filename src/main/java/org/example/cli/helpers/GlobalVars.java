@@ -1,10 +1,6 @@
 package org.example.cli.helpers;
 
-import org.example.services.*;
-import org.example.services.impl.*;
-import org.jline.reader.LineReader;
-import org.jline.terminal.Terminal;
-import java.io.PrintWriter;
+ 
 
 public class GlobalVars {
     public static Terminal terminal;
@@ -12,6 +8,7 @@ public class GlobalVars {
     public static PrintWriter writer;
     public static boolean isLoggedIn = false;
     public static String currentRole = null;
+    public static Utilisateur currentUser = null;
     public static final UtilisateurService utilisateurService = UtilisateurServiceImpl.instance;
     public static final FiliereService filiereService = FiliereServiceImpl.instance;
     public static final ModuleService moduleService = ModuleServiceImpl.instance;

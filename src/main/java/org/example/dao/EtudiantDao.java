@@ -10,6 +10,7 @@ public interface EtudiantDao {
     boolean update(Etudiant etudiant, Etudiant newEtudiant) throws SQLException;
     boolean delete(Long id);
     Etudiant findById(Long id);
+    public List<Etudiant> findEtudiantByElement(Long element_id);
     List<Etudiant> findByFiliere(Long filiereId);
     List<Etudiant> findAll();
     Etudiant getByMatricule(String matricule);

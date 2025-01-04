@@ -24,6 +24,10 @@ public class EtudiantServiceImpl implements EtudiantService {
             throw new RuntimeException(e);
         }
     }
+    @Override
+    public List<Etudiant> findEtudiantByElement(Long element_id) {
+        return etudiantDao.findEtudiantByElement(element_id);
+    }
 
     @Override
     public void update(Etudiant etudiant, Etudiant newEtudiant) {

@@ -9,6 +9,7 @@ public interface ElementDeModuleService {
     ElementDeModule findById(Long id);
     void update(ElementDeModule elementDeModule);
     void delete(Long id);
-    List<ElementDeModule> findAll();
-    ElementDeModule findByName(String name);
+    List<ElementDeModule> findAll(); 
+    List<ElementDeModule> findByProfId(Long id); 
+    ElementDeModule findByName(String name); 
 }

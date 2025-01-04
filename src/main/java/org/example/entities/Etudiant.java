@@ -11,7 +11,7 @@ public class Etudiant {
     private String lastName;
     private String matricule;
 
-    // not in table etudiant
+
     private Filiere filiere;
     private List<Module> modules;
     private List<Note> notes;

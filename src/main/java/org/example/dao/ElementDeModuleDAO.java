@@ -11,6 +11,7 @@ public interface ElementDeModuleDAO {
     void delete(Long id);
     List<ElementDeModule> findAll();
     List<ElementDeModule> findByFiliereId(Long filiereId);
+    List<ElementDeModule> findByProfId(Long filiereId);
     List<ElementDeModule> findByModuleId(Long moduleId);
     ElementDeModule findByName(String name);
     void updateModuleAverage(Long moduleId, double moduleAverage);

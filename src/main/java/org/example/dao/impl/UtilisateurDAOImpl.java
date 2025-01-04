@@ -181,7 +181,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Optional<Utilisateur> authenticate(String login, String motDePasse) {
-        String sql = "SELECT * FROM utilisateur WHERE login = ? AND mot_de_passe = ?";
+        String sql = "SELECT * FROM utilisateur WHERE login = ? AND motdepasse = ?";
 
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -235,7 +235,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
                 rs.getString("nom"),
                 rs.getString("prenom"),
                 rs.getString("login"),
-                rs.getString("mot_de_passe"),
+                rs.getString("motdepasse"),
                 EnumRole.valueOf(rs.getString("role"))
         );
     }

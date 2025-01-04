@@ -1,0 +1,4 @@
+database:
+  url: "jdbc:postgresql://localhost:5432/students"
+  user: "postgres"
+  password: "HN2002hn"
