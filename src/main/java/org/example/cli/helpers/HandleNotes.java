@@ -33,7 +33,7 @@ public class HandleNotes {
                 System.out.println("2. calculate average");
                 System.out.println("3. export notes");
                 System.out.println("4. go Back");
-                String choice = prompt("Enter an element:");
+                String choice = prompt("Enter an choise:");
                 if (choice.equals("4") )
                     break;
 
@@ -49,6 +49,16 @@ public class HandleNotes {
                         }
                     }
                     case "2" :{
+                        ElementDeModule selectedElement = foundElement.get();
+                        List<ModaliteEvaluation> modaliteEvaluations = displayAndFetchModalites(selectedElement);
+
+                        Double avg =noteService.getElementAverage(modaliteEvaluations);
+                        if(avg==-1){
+                            System.err.println("tu doit valider les note first");
+                        }
+                        else{
+                            System.out.println("la mayenne est : "+avg);
+                        }
 
                     }
                     case "3":{
@@ -190,9 +200,30 @@ public class HandleNotes {
     private static void validateNotes(ModaliteEvaluation modaliteEvaluation) {
         List<Note> notes = noteService.getNotesByModalite(modaliteEvaluation.getId());
 
+        boolean allNotesValid = notes.stream().allMatch(note -> note.getNote() >= 0 && note.getNote() <= 20);
+        if (!allNotesValid) {
+            System.out.println("Erreur : Toutes les notes doivent être comprises entre 0 et 20.");
+            return;
+        }
+
+        boolean hasZerosOrTwenties = notes.stream().anyMatch(note -> note.getNote() == 0 || note.getNote() == 20);
+        if (hasZerosOrTwenties) {
+            System.out.println("Certaines notes sont 0 ou 20. Confirmez-vous la validation ? (oui/non)");
+            String confirmation = prompt("Votre réponse : ");
+            if (!confirmation.equalsIgnoreCase("oui")) {
+                System.out.println("Validation annulée.");
+                return;
+            }
+        }
+
+
+        // Validate notes
         notes.forEach(note -> note.setValidation(true));
         notes.forEach(noteService::updateNote);
+
+        System.out.println("Les notes ont été validées avec succès !");
     }
+
 
 
 

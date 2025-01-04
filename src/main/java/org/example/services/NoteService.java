@@ -1,5 +1,6 @@
 package org.example.services;
 
+import org.example.entities.ModaliteEvaluation;
 import org.example.entities.Note;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface NoteService {
     List<Note> getNotesByElement(Long elementId);
     List<Note> getNotesByModalite(Long modliteId);
 
-    double getElementAverage(Long elementId);
+    double getElementAverage(List<ModaliteEvaluation> modaliteEvaluations);
 
     double getModuleAverage(Long moduleId);
 
