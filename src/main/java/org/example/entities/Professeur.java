@@ -1,61 +1,35 @@
 package org.example.entities;
 
-import org.example.enums.Role;
-
 import java.util.List;
 
-public class Professeur extends Utilisateur {
+public class Professeur {
+  private Long id;
   private String nom;
   private String prenom;
   private String specialite;
   private String code;
   private List<ElementDeModule> elementsDeModule;
+  private Utilisateur utilisateur;
 
-  @Override
-  public String toString() {
-    return "Professeur{" +
-      "nom='" + nom + '\'' +
-      ", prenom='" + prenom + '\'' +
-      ", specialite='" + specialite + '\'' +
-      ", code='" + code + '\'' +
-      ", elementsDeModule=" + elementsDeModule +
-      '}';
-  }
-
-  public Professeur(
-    String nom,
-    String prenom,
-    String specialite,
-    String code,
-    List<ElementDeModule> elementsDeModule
-  ) {
+  public Professeur(Long id, String nom, String prenom, String specialite, String code, List<ElementDeModule> elementsDeModule, Utilisateur utilisateur) {
+    this.id = id;
     this.nom = nom;
     this.prenom = prenom;
     this.specialite = specialite;
     this.code = code;
     this.elementsDeModule = elementsDeModule;
+    this.utilisateur = utilisateur;
   }
 
-  public Professeur(
-    Long id,
-    String login,
-    String motDePasse,
-    Role role,
-    String nom,
-    String prenom,
-    String specialite,
-    String code, List<ElementDeModule> elementsDeModule) {
-    super(
-      id,
-      login,
-      motDePasse,
-      role
-    );
-    this.nom = nom;
-    this.prenom = prenom;
-    this.specialite = specialite;
-    this.code = code;
-    this.elementsDeModule = elementsDeModule;
+  public Professeur() {
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getNom() {
@@ -96,5 +70,13 @@ public class Professeur extends Utilisateur {
 
   public void setElementsDeModule(List<ElementDeModule> elementsDeModule) {
     this.elementsDeModule = elementsDeModule;
+  }
+
+  public Utilisateur getUtilisateur() {
+    return utilisateur;
+  }
+
+  public void setUtilisateur(Utilisateur utilisateur) {
+    this.utilisateur = utilisateur;
   }
 }

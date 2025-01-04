@@ -1,11 +1,11 @@
-package org.example.dao;
+package org.example.services;
 
 import org.example.entities.Professeur;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ProfesseurDao {
+public interface ProfesseurService {
   Professeur create(Professeur professeur);
 
   Optional<Professeur> findById(Long id);

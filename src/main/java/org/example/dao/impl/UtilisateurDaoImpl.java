@@ -14,11 +14,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class UtilisateurDaoImpl implements UtilisateurDao {
-
-  /* ############# Beginning of Singleton Code ############# */
   private static UtilisateurDaoImpl instance;
+
   private final DatabaseConnection connectionManager;
-  /* ############### End of Singleton Code ################ */
 
   private UtilisateurDaoImpl(DatabaseConnection connectionManager) {
     this.connectionManager = connectionManager;
@@ -33,8 +31,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public Utilisateur create(Utilisateur utilisateur) {
-    String sql = "INSERT INTO utilisateur (login, mot_de_passe, role) VALUES (?, ?, ?) RETURNING id";
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    String query = "INSERT INTO utilisateur (login, mot_de_passe, role) VALUES (?, ?, ?) RETURNING id;";
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setString(1, utilisateur.getLogin());
       stmt.setString(2, utilisateur.getMotDePasse());
@@ -53,8 +51,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public Optional<Utilisateur> findById(Long id) {
-    String sql = "SELECT * FROM utilisateurs WHERE id = ?";
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    String query = "SELECT * FROM utilisateurs WHERE id = ?";
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setLong(1, id);
       ResultSet rs = stmt.executeQuery();
@@ -72,8 +70,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
   public Optional<Utilisateur> findByLogin(String login) {
 
 
-    String sql = "SELECT * FROM utilisateurs WHERE login = ?";
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    String query = "SELECT * FROM utilisateurs WHERE login = ?";
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setString(1, login);
       ResultSet rs = stmt.executeQuery();
@@ -89,9 +87,9 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public List<Utilisateur> findAll() {
-    String sql = "SELECT * FROM utilisateurs";
+    String query = "SELECT * FROM utilisateurs";
     List<Utilisateur> utilisateurs = new ArrayList<>();
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
 
       while (rs.next()) {
         utilisateurs.add(mapResultSetToUtilisateur(rs));
@@ -104,9 +102,9 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public List<Utilisateur> findByRole(Role role) {
-    String sql = "SELECT * FROM utilisateurs WHERE role = ?";
+    String query = "SELECT * FROM utilisateurs WHERE role = ?";
     List<Utilisateur> utilisateurs = new ArrayList<>();
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setString(1, role.name());
       ResultSet rs = stmt.executeQuery();
@@ -122,9 +120,9 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public List<Utilisateur> findByNom(String nom) {
-    String sql = "SELECT * FROM utilisateurs WHERE nom = ?";
+    String query = "SELECT * FROM utilisateurs WHERE nom = ?";
     List<Utilisateur> utilisateurs = new ArrayList<>();
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setString(1, nom);
       ResultSet rs = stmt.executeQuery();
@@ -140,8 +138,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public Utilisateur update(Utilisateur utilisateur) {
-    String sql = "UPDATE utilisateurs SET nom = ?, prenom = ?, login = ?, motDePasse= ?, role = ? WHERE id = ?";
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    String query = "UPDATE utilisateurs SET nom = ?, prenom = ?, login = ?, motDePasse= ?, role = ? WHERE id = ?";
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setString(3, utilisateur.getLogin());
       stmt.setString(4, utilisateur.getMotDePasse());
@@ -160,10 +158,10 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public boolean updateMotDePasse(Long id, String newMotDePasse) {
-    String sql = "UPDATE utilisateurs SET motDePasse= ? WHERE id = ?";
+    String query = "UPDATE utilisateurs SET motDePasse= ? WHERE id = ?";
     try (
       Connection conn = connectionManager.getConnection();
-      PreparedStatement stmt = conn.prepareStatement(sql)
+      PreparedStatement stmt = conn.prepareStatement(query)
     ) {
 
       stmt.setString(1, newMotDePasse);
@@ -177,8 +175,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public boolean delete(Long id) {
-    String sql = "DELETE FROM utilisateurs WHERE id = ?";
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    String query = "DELETE FROM utilisateurs WHERE id = ?";
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setLong(1, id);
       return stmt.executeUpdate() > 0;
@@ -189,8 +187,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public Optional<Utilisateur> authenticate(String login, String motDePasse) {
-    String sql = "SELECT * FROM utilisateurs WHERE login = ? AND motDePasse= ?";
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    String query = "SELECT * FROM utilisateurs WHERE login = ? AND motDePasse= ?";
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setString(1, login);
       stmt.setString(2, motDePasse);
@@ -207,8 +205,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
   @Override
   public boolean existsByLogin(String login) {
-    String sql = "SELECT COUNT(*) FROM utilisateurs WHERE login = ?";
-    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+    String query = "SELECT COUNT(*) FROM utilisateurs WHERE login = ?";
+    try (Connection conn = connectionManager.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
       stmt.setString(1, login);
       ResultSet rs = stmt.executeQuery();
