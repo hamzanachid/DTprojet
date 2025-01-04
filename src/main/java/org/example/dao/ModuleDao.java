@@ -10,7 +10,7 @@ import java.util.List;
 public interface ModuleDao {
     Module findByName(String name);
     Module create(Module module);
-    void update(Module module);
+    void update(Long id, Module module);
     void delete(Long id);
     Module findById(Long id);
     List<Module> findAll();

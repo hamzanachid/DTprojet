@@ -6,7 +6,7 @@ Marouane:
 - Modalité d'eval
 - database connection, config to .yml
 - Test Etudiant
-
+- DAO/Service : CRUD + findByElementId
 
 TASK /
 - Design Patterns

@@ -1,13 +1,7 @@
 package org.example.cli.helpers;
 
-import org.example.services.EtudiantService;
-import org.example.services.FiliereService;
-import org.example.services.ModuleService;
-import org.example.services.UtilisateurService;
-import org.example.services.impl.EtudiantServiceImpl;
-import org.example.services.impl.FiliereServiceImpl;
-import org.example.services.impl.ModuleServiceImpl;
-import org.example.services.impl.UtilisateurServiceImpl;
+import org.example.services.*;
+import org.example.services.impl.*;
 import org.jline.reader.LineReader;
 import org.jline.terminal.Terminal;
 import java.io.PrintWriter;
@@ -22,4 +16,21 @@ public class GlobalVars {
     public static final FiliereService filiereService = FiliereServiceImpl.instance;
     public static final ModuleService moduleService = ModuleServiceImpl.instance;
     public static final EtudiantService etudiantService = EtudiantServiceImpl.instance;
+    public static final ModaliteEvaluationService modaliteEvaluationService = ModaliteEvaluationServiceImpl.instance;
+    public static final ElementDeModuleService elementDeModuleService = ElementsDeModuleServiceImpl.instance;
+
+    public static String prompt(String message) {
+        return reader.readLine(message + ": ");
+    }
+
+    public static void handleLogout() {
+        isLoggedIn = false;
+        currentRole = null;
+        System.out.println("Logged out successfully");
+    }
+
+    public static void showMessage(String message) {
+        System.out.println("\n" + message);
+        prompt("Press Enter to continue");
+    }
 }

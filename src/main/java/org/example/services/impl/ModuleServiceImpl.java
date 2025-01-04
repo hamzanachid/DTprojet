@@ -42,7 +42,7 @@ public class ModuleServiceImpl implements ModuleService {
     }
 
     @Override
-    public void update(Module module) {
+    public void update(Long id, Module module) {
         if (module == null) {
             throw new IllegalArgumentException("Filiere cannot be null");
         }
@@ -58,7 +58,7 @@ public class ModuleServiceImpl implements ModuleService {
         if (module.getSemestre() == null || module.getSemestre().name().isEmpty()) {
             throw new IllegalArgumentException("Filiere semestre cannot be null or empty");
         }
-        moduleDao.update(module);
+        moduleDao.update(id, module);
 
     }
 
