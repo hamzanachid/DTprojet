@@ -11,6 +11,7 @@ import org.jline.reader.*;
 import org.jline.terminal.*;
 import static org.example.cli.helpers.GlobalVars.*;
 
+@SuppressWarnings("unused")
 public class Main {
     public static void run() {
         try {
@@ -173,8 +174,8 @@ public class Main {
                 case "2":
                     System.out.println("Module List:");
                     List<Module> modules = moduleService.findAll();
-                    if(modules.size() > 0) {
-                        modules.stream().forEach(c -> System.out.println(c.toString()));
+                    if(!modules.isEmpty()) {
+                        modules.forEach(c -> System.out.println(c.toString()));
                         prompt("Press Enter to continue");
                     } else {
                         System.out.println("No modules found!");
@@ -259,7 +260,7 @@ public class Main {
                 case "2":
                     System.out.println("Etudiants List:");
                     List<Etudiant> etudiants = etudiantService.findAll();
-                    etudiants.stream().forEach(c -> System.out.println(c.toString()));
+                    etudiants.forEach(c -> System.out.println(c.toString()));
                     prompt("Press Enter to continue");
                     break;
                 case "3":
@@ -325,7 +326,7 @@ public class Main {
                 case "2":
                     System.out.println("List Filieres:");
                     List<Filiere> filieres = filiereService.getAll();
-                    filieres.stream().forEach(c -> System.out.println(c.toString()));
+                    filieres.forEach(c -> System.out.println(c.toString()));
                     prompt("Press Enter to continue");
                     break;
                 case "3":
@@ -335,7 +336,6 @@ public class Main {
                     System.out.println("filiere deleted: " + name);
                     break;
                 case "4":
-                case "5":
                     showMessage("Operation not implemented");
                     break;
             }

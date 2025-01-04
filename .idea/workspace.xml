@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="errors but okay">
+    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="A lot of stuff, errors fixed, cli added, test!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plan" beforeDir="false" afterPath="$PROJECT_DIR$/plan" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/UtilisateurBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/UtilisateurBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Professeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Professeur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Utilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/EnumRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/EnumRole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/ModaliteEvaluationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/ModaliteEvaluationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/EnumRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/UtilisateurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/UtilisateurService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/UtilisateurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/UtilisateurServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735809315044</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="A lot of stuff, errors fixed, cli added, test!">
+      <option name="closed" value="true" />
+      <created>1735991744659</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735991744659</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,6 +180,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge pull request #1 from hamzanachid/feat-HamzaJob&#10;&#10;Feat hamza job" />
     <MESSAGE value="errors but okay" />
-    <option name="LAST_COMMIT_MESSAGE" value="errors but okay" />
+    <MESSAGE value="A lot of stuff, errors fixed, cli added, test!" />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot of stuff, errors fixed, cli added, test!" />
   </component>
 </project>

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class UtilisateurServiceImpl implements UtilisateurService {
-    private static UtilisateurDAO utilisateurDAO = UtilisateurDAOImpl.instance;
+    private static final UtilisateurDAO utilisateurDAO = UtilisateurDAOImpl.instance;
     public static final UtilisateurService instance = new UtilisateurServiceImpl();
 
     private UtilisateurServiceImpl() {}
@@ -75,8 +75,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     public Optional<Utilisateur> authenticateUtilisateur(String login, String motDePasse) {
-        Optional<Utilisateur> utilisateur = utilisateurDAO.authenticate(login, motDePasse);
-        return utilisateur;
+        return utilisateurDAO.authenticate(login, motDePasse);
     }
 
     @Override
