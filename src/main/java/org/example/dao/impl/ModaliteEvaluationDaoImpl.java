@@ -118,7 +118,7 @@ public class ModaliteEvaluationDaoImpl implements ModaliteEvaluationDao {
     private ModaliteEvaluation mapResultSetToModalite(ResultSet resultSet) throws SQLException {
         ModaliteEvaluation modaliteEvaluation = new ModaliteEvaluation();
         modaliteEvaluation.setId(resultSet.getLong("id"));
-        modaliteEvaluation.setModaliteEvaluationType(ModaliteEvaluationType.valueOf(resultSet.getString("modalite_evaluation_type")));
+        modaliteEvaluation.setModaliteEvaluationType(ModaliteEvaluationType.valueOf(resultSet.getString("type")));
         modaliteEvaluation.setCoefficient(resultSet.getDouble("coefficient"));
         ElementDeModuleDAO elementDeModuleDAO = ElementDeModuleDaoImpl.instance;
         ElementDeModule elementDeModule = elementDeModuleDAO.findById((long) resultSet.getInt("element_module_id"));

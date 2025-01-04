@@ -1,6 +1,10 @@
 package org.example.cli.helpers;
 
 
+import org.example.config.DatabaseConnection;
+import org.example.dao.ProfesseurDao;
+import org.example.dao.impl.ProfesseurDaoImpl;
+import org.example.entities.Professeur;
 import org.example.entities.Utilisateur;
 import org.example.services.*;
 import org.example.services.impl.*;
@@ -15,14 +19,15 @@ public class GlobalVars {
     public static PrintWriter writer;
     public static boolean isLoggedIn = false;
     public static String currentRole = null;
-    public static Utilisateur currentUser = null;
+    public static Professeur currentUser = null;
     public static final UtilisateurService utilisateurService = UtilisateurServiceImpl.instance;
     public static final FiliereService filiereService = FiliereServiceImpl.instance;
     public static final ModuleService moduleService = ModuleServiceImpl.instance;
     public static final EtudiantService etudiantService = EtudiantServiceImpl.instance;
     public static final ModaliteEvaluationService modaliteEvaluationService = ModaliteEvaluationServiceImpl.instance;
     public static final ElementDeModuleService elementDeModuleService = ElementsDeModuleServiceImpl.instance;
-
+    public static final ProfesseurService professeurService = ProfesseurServiceImpl.getInstance(ProfesseurDaoImpl.getInstance(DatabaseConnection.getInstance(), utilisateurService));
+    public static final NoteService noteService= NoteServiceImpl.getInstance();
     public static String prompt(String message) {
         return reader.readLine(message + ": ");
     }

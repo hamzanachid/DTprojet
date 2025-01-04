@@ -1,42 +1,26 @@
 package org.example.cli.helpers;
 
 import org.example.entities.*;
-import org.example.services.ElementDeModuleService;
-import org.example.services.EtudiantService;
-import org.example.services.ModaliteEvaluationService;
-import org.example.services.NoteService;
-import org.example.services.impl.ElementsDeModuleServiceImpl;
-import org.example.services.impl.EtudiantServiceImpl;
-import org.example.services.impl.ModaliteEvaluationServiceImpl;
-import org.example.services.impl.NoteServiceImpl;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.example.cli.helpers.GlobalVars.prompt;
+import static org.example.cli.helpers.GlobalVars.*;
 
 
 public class HandleNotes {
-    private static final ElementDeModuleService elementDeModuleService= ElementsDeModuleServiceImpl.instance;
-    private static final ModaliteEvaluationService modaliteEvaliationService= ModaliteEvaluationServiceImpl.instance;
-    private static final NoteService noteService= NoteServiceImpl.getInstance();
-    private static final EtudiantService etudiantService= EtudiantServiceImpl.instance;
 
     public static void handleElementNotes(Professeur professeur) {
         while (true) {
             System.out.println("handle elements model");
             List<ElementDeModule> elementDeModuleList = displayAndFetchElements(professeur);
             Optional<ElementDeModule> foundElement = selectElement(elementDeModuleList);
-
-
-
             if (foundElement.isPresent()) {
                 System.out.println("1. handle element note");
                 System.out.println("2. calculate average");
                 System.out.println("3. export notes");
                 System.out.println("4. go Back");
-                String choice = prompt("Enter an choise:");
+                String choice = prompt("Enter an choice:");
                 if (choice.equals("4") )
                     break;
 
@@ -45,32 +29,29 @@ public class HandleNotes {
                         ElementDeModule selectedElement = foundElement.get();
                         List<ModaliteEvaluation> modaliteEvaluations = displayAndFetchModalites(selectedElement);
                         Optional<ModaliteEvaluation> foundModalite = selectModalite(modaliteEvaluations);
-
                         if (foundModalite.isPresent()) {
                             ModaliteEvaluation modaliteEvaluation = foundModalite.get();
                             handleModaliteActions(modaliteEvaluation, selectedElement);
                         }
+                        break;
                     }
                     case "2" :{
                         ElementDeModule selectedElement = foundElement.get();
                         List<ModaliteEvaluation> modaliteEvaluations = displayAndFetchModalites(selectedElement);
-
-                        Double avg =noteService.getElementAverage(modaliteEvaluations);
+                        Double avg = noteService.getElementAverage(modaliteEvaluations);
                         if(avg==-1){
-                            System.err.println("tu doit valider les note first");
+                            System.err.println("validate notes first");
                         }
                         else{
-                            System.out.println("la mayenne est : "+avg);
+                            System.out.println("average : "+avg);
                         }
-
+                        break;
                     }
                     case "3":{
-
+                        break;
                     }
-
                 }
-
-            }else {
+            } else {
                 System.err.println("not exsits in the list");
             }
         }
@@ -92,7 +73,7 @@ public class HandleNotes {
 
     private static List<ModaliteEvaluation> displayAndFetchModalites(ElementDeModule element) {
         System.out.println("Modalities:");
-        List<ModaliteEvaluation> modaliteEvaluations = modaliteEvaliationService.findByElement(element);
+        List<ModaliteEvaluation> modaliteEvaluations = modaliteEvaluationService.findByElement(element);
         modaliteEvaluations.forEach(c -> System.out.println(c.getModaliteEvaluationType().name()));
         return modaliteEvaluations;
     }
@@ -187,7 +168,6 @@ public class HandleNotes {
             if (noteInput != null) {
                 Double Rnote = Double.valueOf(noteInput);
                 note.setNote(Rnote);
-
                 boolean absence = false;
                 if (Rnote == 0) {
                     String isAbsent = prompt("Was the student absent? (yes/no)");
@@ -196,35 +176,28 @@ public class HandleNotes {
                 note.setAbsence(absence);
             }
         });
-
         notes.forEach(noteService::updateNote);
     }
 
     private static void validateNotes(ModaliteEvaluation modaliteEvaluation) {
         List<Note> notes = noteService.getNotesByModalite(modaliteEvaluation.getId());
-
         boolean allNotesValid = notes.stream().allMatch(note -> note.getNote() >= 0 && note.getNote() <= 20);
         if (!allNotesValid) {
             System.out.println("Erreur : Toutes les notes doivent être comprises entre 0 et 20.");
             return;
         }
-
         boolean hasZerosOrTwenties = notes.stream().anyMatch(note -> note.getNote() == 0 || note.getNote() == 20);
         if (hasZerosOrTwenties) {
             System.out.println("Certaines notes sont 0 ou 20. Confirmez-vous la validation ? (oui/non)");
             String confirmation = prompt("Votre réponse : ");
             if (!confirmation.equalsIgnoreCase("oui")) {
-                System.out.println("Validation annulée.");
+                System.out.println("validation canceled");
                 return;
             }
         }
-
-
-        // Validate notes
         notes.forEach(note -> note.setValidation(true));
         notes.forEach(noteService::updateNote);
-
-        System.out.println("Les notes ont été validées avec succès !");
+        System.out.println("notes validated");
     }
 
 

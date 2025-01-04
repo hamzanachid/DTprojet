@@ -84,7 +84,6 @@ public class EtudiantDaoImpl implements EtudiantDao {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
-            System.err.println("RS : " + rs);
             if (rs.next()) {
                 return mapResultSetToEtudiant(rs);
             }

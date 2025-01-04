@@ -142,10 +142,7 @@ public class ElementDeModuleDaoImpl implements ElementDeModuleDAO {
         List<ElementDeModule> elementDeModules = new ArrayList<>();
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(query);
-
-
         ) {
-
             statement.setLong(1, filiereId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {

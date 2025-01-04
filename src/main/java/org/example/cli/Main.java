@@ -5,12 +5,10 @@ import org.example.entities.Utilisateur;
 import org.example.enums.EnumRole;
 import org.jline.reader.LineReaderBuilder;
 import org.jline.terminal.TerminalBuilder;
-
 import java.io.IOException;
 import java.util.*;
-
 import static org.example.cli.helpers.GlobalVars.*;
- import static org.example.cli.helpers.HandleElementModule.handleElementModule;
+import static org.example.cli.helpers.HandleElementModule.handleElementModule;
 import static org.example.cli.helpers.HandleEtudiants.handleEtudiants;
 import static org.example.cli.helpers.HandleFilieres.handleFilieres;
 import static org.example.cli.helpers.HandleModaliteEvaluation.handleModaliteEvaluation;
@@ -62,7 +60,7 @@ public class Main {
             isLoggedIn = true;
             System.out.println("Logged in as " + currentRole);
             if(currentRole.equals(EnumRole.PROFESSOR.name())){
-
+                currentUser = professeurService.findByUserId(utilisateur.getId()).get();
             }
         } else {
             System.out.println("Invalid credentials!");
@@ -107,7 +105,7 @@ public class Main {
             }
         } else {
             switch (choice) { 
-                case "1": handleElementNotes(new Professeur()); break;
+                case "1": handleElementNotes(currentUser); break;
                 case "2": handleLogout(); break;
             }
         }

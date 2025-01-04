@@ -41,7 +41,6 @@ public class ModuleDaoImpl implements ModuleDao {
 
     @Override
     public Module create(Module module) {
-        System.err.println(module);
         String sql = "INSERT INTO module (code, nom, semestre, filiere_id) VALUES (?, ?, CAST(? AS semestre_enum), ?) RETURNING id;";
         try (Connection connection = connectionManager.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

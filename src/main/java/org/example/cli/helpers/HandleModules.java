@@ -14,7 +14,6 @@ public class HandleModules {
         String semester = prompt("Enter semester (S1-S5)");
         String nameFiliere = prompt("Enter filiere name");
         Filiere filiere = filiereService.getByName(nameFiliere);
-        System.err.println(filiere);
         moduleService.create(Module.builder()
                 .setNom(name)
                 .setCode(code)

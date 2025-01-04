@@ -43,7 +43,6 @@ public class ModuleServiceImpl implements ModuleService {
 
     @Override
     public void update(Long id, Module module) {
-        System.err.println(module);
         if (module == null) {
             throw new IllegalArgumentException("Filiere cannot be null");
         }
