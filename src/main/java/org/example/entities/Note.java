@@ -1,10 +1,25 @@
 package org.example.entities;
 
+import org.example.builders.NoteBuilder;
+
 public class Note {
     private int id;
     private Etudiant etudiant;
     private ModaliteEvaluation modaliteEvaluation;
     private double note;
+
+    public Note() {
+    }
+
+    public Note(int id, Etudiant etudiant, ModaliteEvaluation modaliteEvaluation, double note, boolean absence, boolean validation) {
+        this.id = id;
+        this.etudiant = etudiant;
+        this.modaliteEvaluation = modaliteEvaluation;
+        this.note = note;
+        this.absence = absence;
+        this.validation = validation;
+    }
+
     private boolean absence;
     private boolean validation;
 
@@ -54,5 +69,8 @@ public class Note {
 
     public void setValidation(boolean validation) {
         this.validation = validation;
+    }
+    public static NoteBuilder builder(){
+       return  new NoteBuilder();
     }
 }

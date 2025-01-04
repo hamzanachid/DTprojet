@@ -5,10 +5,12 @@ import org.example.dao.NoteDao;
 import org.example.dao.impl.ElementDeModuleDaoImpl;
 import org.example.dao.impl.NoteDaoImpl;
 import org.example.entities.ElementDeModule;
+import org.example.entities.ModaliteEvaluation;
 import org.example.entities.Note;
 import org.example.services.NoteService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class NoteServiceImpl implements NoteService {
     private final NoteDao noteDao = NoteDaoImpl.instance;
@@ -36,10 +38,11 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public void addNote(Note note) {
-        if (note.getNote() < 0 || note.getNote() > 20) {
-            throw new RuntimeException("Note must be between 0 and 20");
-        }
-        draftNotes.add(note);
+        noteDao.create(note);
+    }
+    @Override
+    public void updateNote(Note note) {
+        noteDao.update(note);
     }
 
     @Override
@@ -84,8 +87,41 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public double getElementAverage(Long elementId) {
-        return noteDao.calculateElementAverage(elementId);
+    public List<Note> getNotesByModalite(Long modliteId) {
+        return noteDao.getByModalite(modliteId);
+    }
+
+    @Override
+    public double getElementAverage(List<ModaliteEvaluation> modaliteEvaluations) {
+        double avg = 0.0;
+        double coef = 0.0;
+
+        for (ModaliteEvaluation modalite : modaliteEvaluations) {
+            List<Note> notes = this.getNotesByModalite(modalite.getId());
+
+            boolean validNotes = notes.stream()
+                    .anyMatch(note -> !note.isValidation());
+
+            if (!validNotes) {
+                double modaliteTotal = notes.stream()
+                        .mapToDouble(Note::getNote)
+                        .sum();
+
+                double modaliteAverage = modaliteTotal / notes.size();
+
+                avg += modaliteAverage * modalite.getCoefficient();
+                coef += modalite.getCoefficient();
+            }
+            else {
+                return -1;
+            }
+        }
+
+
+
+        double weightedAverage = avg / coef;
+
+        return weightedAverage;
     }
 
     @Override

@@ -1,17 +1,23 @@
 package org.example.cli;
 
+import org.example.entities.Professeur;
+import org.example.entities.Utilisateur;
+import org.example.enums.EnumRole;
+import org.jline.reader.LineReaderBuilder;
+import org.jline.terminal.TerminalBuilder;
+
 import java.io.IOException;
 import java.util.*;
-import org.example.entities.Utilisateur;
-import org.jline.reader.*;
-import org.jline.terminal.*;
+
 import static org.example.cli.helpers.GlobalVars.*;
-import static org.example.cli.helpers.HandleElementModule.handleElementModule;
+ import static org.example.cli.helpers.HandleElementModule.handleElementModule;
 import static org.example.cli.helpers.HandleEtudiants.handleEtudiants;
 import static org.example.cli.helpers.HandleFilieres.handleFilieres;
 import static org.example.cli.helpers.HandleModaliteEvaluation.handleModaliteEvaluation;
 import static org.example.cli.helpers.HandleModules.handleModules;
+import static org.example.cli.helpers.HandleNotes.handleElementNotes;
 import static org.example.cli.helpers.HandleProfesseurs.handleProfessors;
+
 
 @SuppressWarnings("unused")
 public class Main {
@@ -55,6 +61,9 @@ public class Main {
             currentRole = utilisateur.getRole().name();
             isLoggedIn = true;
             System.out.println("Logged in as " + currentRole);
+            if(currentRole.equals(EnumRole.PROFESSOR.name())){
+
+            }
         } else {
             System.out.println("Invalid credentials!");
         }
@@ -72,13 +81,10 @@ public class Main {
                     "6. Elements de module",
                     "7. logout"
             );
-        } else if("PROF".equals(currentRole)){
+        } else if("PROFESSOR".equals(currentRole)){
             options = Arrays.asList(
-                    "1. Enter Grades",
-                    "2. View Statistics",
-                    "3. Export Reports",
-                    "4. Change Password",
-                    "5. Logout"
+                    "1. Choose Elements",
+                    "2. Logout"
             );
         }
         System.out.println("\nMain Menu");
@@ -100,13 +106,14 @@ public class Main {
                 case "7": handleLogout(); break;
             }
         } else {
-            switch (choice) {
-                case "1": // TODO handleGrades(); break;
-                case "2": showMessage("View Statistics"); break;
-                case "3": showMessage("Export Reports"); break;
-                case "4": handleLogout(); break;
+            switch (choice) { 
+                case "1": handleElementNotes(new Professeur()); break;
+                case "2": handleLogout(); break;
             }
         }
         return true;
     }
+
+
+
 }

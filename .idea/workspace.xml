@@ -6,22 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="A lot of stuff, errors fixed, cli added, test!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleNotes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/NoteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/NoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/NoteServiceImpl.java" afterDir="false" />
+ 
       <change beforePath="$PROJECT_DIR$/plan" beforeDir="false" afterPath="$PROJECT_DIR$/plan" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/ElementDeModuleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/builders/ElementDeModuleBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleEtudiants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleEtudiants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleModaliteEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleModaliteEvaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleModules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleModules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ModaliteEvaluationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ModaliteEvaluationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ModaliteEvaluationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ModaliteEvaluationDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/GlobalVars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/GlobalVars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ElementDeModuleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ElementDeModuleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ModuleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ModuleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ElementDeModuleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ElementDeModuleDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ModuleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ModuleDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ModaliteEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ModaliteEvaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Professeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Professeur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ModaliteEvaluationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ModaliteEvaluationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/ModaliteEvaluationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/ModaliteEvaluationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ElementDeModuleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ElementDeModuleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ModuleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ModuleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/ElementsDeModuleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/ElementsDeModuleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/ModuleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/ModuleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" />
-    </list>
+     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,9 +58,11 @@
     &quot;accountId&quot;: &quot;e86e2aee-48a0-44af-9788-4af9b65fd4f5&quot;
   }
 }</component>
-  <component name="ProblemsViewState">
+   <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+   <component name="ProblemsViewState">
     <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
-  </component>
+   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -78,13 +82,21 @@
     "Application.Main.executor": "Run",
     "JUnit.FiliereServiceTest.executor": "Run",
     "JUnit.FiliereServiceTest.testCreate.executor": "Run",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat/ProfManager",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "feat/FixMain",
-    "ignore.virus.scanning.warn.message": "true",
+     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hamza nachid\Documents\DT\DTprojet\src\main\resources" />
+      <recent name="C:\Users\hamza nachid\Documents\DT\DTprojet" />
+      <recent name="C:\Users\hamza nachid\Documents\DT\DTprojet\src\main\java\org\example\config" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.builders" />
     </key>
@@ -191,23 +203,7 @@
       <option name="project" value="LOCAL" />
       <updated>1735992035057</updated>
     </task>
-    <task id="LOCAL-00006" summary="A lot of stuff, errors fixed, cli added, test!">
-      <option name="closed" value="true" />
-      <created>1736010804389</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1736010804389</updated>
-    </task>
-    <task id="LOCAL-00007" summary="A lot of stuff, errors fixed, cli added, test!">
-      <option name="closed" value="true" />
-      <created>1736010809909</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1736010809909</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,5 +222,16 @@
     <MESSAGE value="errors but okay" />
     <MESSAGE value="A lot of stuff, errors fixed, cli added, test!" />
     <option name="LAST_COMMIT_MESSAGE" value="A lot of stuff, errors fixed, cli added, test!" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/dao/impl/NoteDaoImpl.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
