@@ -3,7 +3,7 @@ package org.example.dao.impl;
 import org.example.config.DatabaseConnection;
 import org.example.dao.UtilisateurDAO;
 import org.example.entities.Utilisateur;
-import org.example.enums.Role;
+import org.example.enums.EnumRole;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +91,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
     }
 
     @Override
-    public List<Utilisateur> findByRole(Role role) {
+    public List<Utilisateur> findByRole(EnumRole role) {
         String sql = "SELECT * FROM utilisateur WHERE role = ?";
         List<Utilisateur> utilisateur = new ArrayList<>();
         try (Connection conn = connectionManager.getConnection();
@@ -236,7 +236,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
                 rs.getString("prenom"),
                 rs.getString("login"),
                 rs.getString("mot_de_passe"),
-                Role.valueOf(rs.getString("role"))
+                EnumRole.valueOf(rs.getString("role"))
         );
     }
 }

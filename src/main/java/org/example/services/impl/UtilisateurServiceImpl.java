@@ -1,12 +1,9 @@
 package org.example.services.impl;
 
-import org.example.dao.ModuleDao;
 import org.example.dao.UtilisateurDAO;
-import org.example.dao.impl.ModuleDaoImpl;
 import org.example.dao.impl.UtilisateurDAOImpl;
 import org.example.entities.Utilisateur;
-import org.example.enums.Role;
-import org.example.services.ModuleService;
+import org.example.enums.EnumRole;
 import org.example.services.UtilisateurService;
 import org.example.builders.UtilisateurBuilder;
 import java.util.List;
@@ -19,7 +16,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     private UtilisateurServiceImpl() {}
 
     @Override
-    public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
+    public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role) {
         Utilisateur utilisateur = new UtilisateurBuilder()
                 .withNom(nom)
                 .withPrenom(prenom)
@@ -47,7 +44,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     }
 
     @Override
-    public List<Utilisateur> getUtilisateursByRole(Role role) {
+    public List<Utilisateur> getUtilisateursByRole(EnumRole role) {
         return utilisateurDAO.findByRole(role);
     }
 
@@ -103,7 +100,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     }
 
     @Override
-    public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
+    public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role) {
         Utilisateur utilisateur = new UtilisateurBuilder()
                 .withNom(nom)
                 .withPrenom(prenom)

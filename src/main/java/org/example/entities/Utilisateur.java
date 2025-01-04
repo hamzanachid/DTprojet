@@ -1,7 +1,7 @@
 package org.example.entities;
 
 import org.example.builders.UtilisateurBuilder;
-import org.example.enums.Role;
+import org.example.enums.EnumRole;
 
 import java.util.Objects;
 
@@ -11,11 +11,11 @@ public class Utilisateur {
     private String prenom;
     private String login;
     private String motDePasse;
-    private Role role;
+    private EnumRole role;
 
     public Utilisateur() {}
 
-    public Utilisateur(Long id, String nom, String prenom, String login, String motDePasse, Role role) {
+    public Utilisateur(Long id, String nom, String prenom, String login, String motDePasse, EnumRole role) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -64,11 +64,11 @@ public class Utilisateur {
         this.motDePasse = motDePasse;
     }
 
-    public Role getRole() {
+    public EnumRole getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(EnumRole role) {
         this.role = role;
     }
 

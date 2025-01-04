@@ -1,6 +1,6 @@
 package org.example.entities;
 
-import org.example.enums.Role;
+import org.example.enums.EnumRole;
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public class Professeur extends Utilisateur {
 
     }
 
-    public Professeur(Long id, String nom, String prenom, String login, String motDePasse, Role role, Long id1, String specialite, String code, Utilisateur compteUtilisateur, List<Module> modules, List<ElementDeModule> elementsDeModule) {
+    public Professeur(Long id, String nom, String prenom, String login, String motDePasse, EnumRole role, Long id1, String specialite, String code, Utilisateur compteUtilisateur, List<Module> modules, List<ElementDeModule> elementsDeModule) {
         super(id, nom, prenom, login, motDePasse, role);
         this.id = id1;
         this.specialite = specialite;

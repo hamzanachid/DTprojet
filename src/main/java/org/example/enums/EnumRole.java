@@ -1,6 +1,6 @@
 package org.example.enums;
 
-public enum Role {
+public enum EnumRole {
     ADMIN,
     PROFESSOR;
 }

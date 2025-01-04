@@ -1,35 +1,17 @@
 package org.example.cli;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.*;
 import org.example.entities.Etudiant;
 import org.example.entities.Filiere;
 import org.example.entities.Module;
 import org.example.entities.Utilisateur;
 import org.example.enums.Semestre;
-import org.example.services.EtudiantService;
-import org.example.services.FiliereService;
-import org.example.services.ModuleService;
-import org.example.services.UtilisateurService;
-import org.example.services.impl.EtudiantServiceImpl;
-import org.example.services.impl.FiliereServiceImpl;
-import org.example.services.impl.ModuleServiceImpl;
-import org.example.services.impl.UtilisateurServiceImpl;
 import org.jline.reader.*;
 import org.jline.terminal.*;
+import static org.example.cli.helpers.GlobalVars.*;
 
 public class Main {
-    private static Terminal terminal;
-    private static LineReader reader;
-    private static PrintWriter writer;
-    private static boolean isLoggedIn = false;
-    private static String currentRole = null;
-    private static final UtilisateurService utilisateurService = UtilisateurServiceImpl.instance;
-    private static final FiliereService filiereService = FiliereServiceImpl.instance;
-    private static final ModuleService moduleService = ModuleServiceImpl.instance;
-    private static final EtudiantService etudiantService = EtudiantServiceImpl.instance;
-
     public static void run() {
         try {
             terminal = TerminalBuilder.builder().system(true).build();
@@ -90,7 +72,7 @@ public class Main {
                     "6. Elements de module",
                     "7. logout"
             );
-        } else {
+        } else if("PROF".equals(currentRole)){
             options = Arrays.asList(
                     "1. Enter Grades",
                     "2. View Statistics",
@@ -99,7 +81,6 @@ public class Main {
                     "5. Logout"
             );
         }
-
         System.out.println("\nMain Menu");
         System.out.println("---------");
         options.forEach(System.out::println);
