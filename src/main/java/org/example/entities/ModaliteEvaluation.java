@@ -1,9 +1,11 @@
 package org.example.entities;
 
+import org.example.builders.ModaliteEvaluationBuilder;
+import org.example.builders.ModuleBuilder;
 import org.example.enums.ModaliteEvaluationType;
 
 public class ModaliteEvaluation {
-    private int id;
+    private Long id;
     private ElementDeModule elementDeModule;
     private ModaliteEvaluationType modaliteEvaluationType;
     private double coefficient;
@@ -11,18 +13,18 @@ public class ModaliteEvaluation {
     public ModaliteEvaluation() {
     }
 
-    public ModaliteEvaluation(int id, ElementDeModule elementDeModule, ModaliteEvaluationType modaliteEvaluationType, double coefficient) {
+    public ModaliteEvaluation(Long id, ElementDeModule elementDeModule, ModaliteEvaluationType modaliteEvaluationType, double coefficient) {
         this.id = id;
         this.elementDeModule = elementDeModule;
         this.modaliteEvaluationType = modaliteEvaluationType;
         this.coefficient = coefficient;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,5 +50,9 @@ public class ModaliteEvaluation {
 
     public void setCoefficient(double coefficient) {
         this.coefficient = coefficient;
+    }
+
+    public static ModaliteEvaluationBuilder builder() {
+        return new ModaliteEvaluationBuilder();
     }
 }

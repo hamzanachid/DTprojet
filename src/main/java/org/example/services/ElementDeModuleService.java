@@ -10,4 +10,5 @@ public interface ElementDeModuleService {
     void update(ElementDeModule elementDeModule);
     void delete(Long id);
     List<ElementDeModule> findAll();
+    ElementDeModule findByName(String name);
 }

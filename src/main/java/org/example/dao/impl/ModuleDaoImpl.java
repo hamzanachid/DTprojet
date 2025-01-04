@@ -64,8 +64,8 @@ public class ModuleDaoImpl implements ModuleDao {
     }
 
     @Override
-    public void update(Module module) {
-        String sql = "UPDATE module SET code = ?, nom = ? , semestre = ?,filiere_id=? WHERE id = ?";
+    public void update(Long id, Module module) {
+        String sql = "UPDATE module SET code = ?, nom = ? , semestre = ?, filiere_id = ? WHERE id = ?";
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -73,8 +73,7 @@ public class ModuleDaoImpl implements ModuleDao {
             statement.setString(2, module.getNom());
             statement.setString(3, module.getSemestre().name());
             statement.setLong(4, module.getFiliere().getId());
-            statement.setLong(5, module.getId());
-
+            statement.setLong(5, id);
             statement.executeUpdate();
 
         } catch (SQLException e) {
@@ -136,7 +135,6 @@ public class ModuleDaoImpl implements ModuleDao {
 
     private Module mapResultSetToModule(ResultSet resultSet) throws SQLException {
         Module module = new Module();
-        System.out.println(resultSet.getLong("filiere_id"));
         module.setId(resultSet.getLong("id"));
         module.setCode(resultSet.getString("code"));
         module.setNom(resultSet.getString("nom"));
@@ -146,7 +144,6 @@ public class ModuleDaoImpl implements ModuleDao {
         FiliereDao filiereDao=FiliereDaoImpl.instance;
         Filiere filiere=filiereDao.findById(resultSet.getLong("filiere_id"));
         module.setFiliere(filiere);
-
 
         return module;
     }

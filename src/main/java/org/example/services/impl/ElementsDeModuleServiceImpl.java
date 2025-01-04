@@ -67,4 +67,9 @@ public class ElementsDeModuleServiceImpl implements ElementDeModuleService {
         }
         return elementDeModules;
     }
+
+    @Override
+    public ElementDeModule findByName(String name) {
+        return elementDeModuleDAO.findByName(name);
+    }
 }
