@@ -7,4 +7,9 @@ import java.util.List;
 
 public interface FiliereDao {
     Filiere create(Filiere filiere);
+    Filiere findById(Long id);
+    void update(Filiere filiere);
+    void delete(Long id);
+    List<Filiere> findAll();
+    Filiere findByName(String name);
 }

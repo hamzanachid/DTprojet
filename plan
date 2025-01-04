@@ -1,88 +1,12 @@
-// ElementDeModuleService
-public interface ElementDeModuleService {
-    ElementDeModule create(ElementDeModule element);
-    void update(ElementDeModule element);
-    void delete(Long id);
-    ElementDeModule getById(Long id);
-    List<ElementDeModule> getByModule(Long moduleId);
-    List<ElementDeModule> getByProfesseur(Long professeurId);
-    double calculateCoefficient(Long elementId);
-}
+are we updates? -> push
 
-// EtudiantService
-public interface EtudiantService {
-    Etudiant create(Etudiant etudiant);
-    void update(Etudiant etudiant);
-    void delete(Long id);
-    Etudiant getById(Long id);
-    List<Etudiant> getByFiliere(Long filiereId);
-    List<Etudiant> getByModule(Long moduleId);
-}
+Marouane:
+- refactoring dyl "switch case", create class, private helpers, static output(function)
+- nkemel menu admin
+- Modalité d'eval
+- database connection, config to .yml
+- Test Etudiant
 
-// FiliereService
-public interface FiliereService {
-    Filiere create(Filiere filiere);
-    void update(Filiere filiere);
-    void delete(Long id);
-    Filiere getById(Long id);
-    List<Filiere> getAll();
-    List<ElementDeModule> getElements(Long filiereId);
-}
 
-// ModaliteEvaluationService
-public interface ModaliteEvaluationService {
-    ModaliteEvaluation create(ModaliteEvaluation modalite);
-    void update(ModaliteEvaluation modalite);
-    void delete(Long id);
-    ModaliteEvaluation getById(Long id);
-    List<ModaliteEvaluation> getByElement(Long elementId);
-    double calculateCoefficient(Long modaliteId);
-}
-
-// ModuleService
-public interface ModuleService {
-    Module create(Module module);
-    void update(Module module);
-    void delete(Long id);
-    Module getById(Long id);
-    List<Module> getByFiliere(Long filiereId);
-    List<Module> getBySemestre(Semestre semestre);
-    double calculateAverage(Long moduleId);
-    boolean isValidated(Long moduleId);
-}
-
-// NoteService
-public interface NoteService {
-    Note create(Note note);
-    void update(Note note);
-    void delete(Long id);
-    Note getById(Long id);
-    List<Note> getByEtudiant(Long etudiantId);
-    List<Note> getByModalite(Long modaliteId);
-    void saveDraft(List<Note> notes);
-    void validate(Long elementId);
-    void markAbsent(Long etudiantId, Long modaliteId);
-    boolean validateNotes(List<Note> notes);
-    void exportNotes(Long elementId, String format);
-}
-
-// ProfesseurService
-public interface ProfesseurService {
-    Professeur create(Professeur professeur);
-    void update(Professeur professeur);
-    void delete(Long id);
-    Professeur getById(Long id);
-    List<Professeur> getAll();
-    List<ElementDeModule> getElements(Long professeurId);
-    void assignElement(Long professeurId, Long elementId);
-}
-
-// UtilisateurService
-public interface UtilisateurService {
-    Utilisateur create(Utilisateur utilisateur);
-    void update(Utilisateur utilisateur);
-    void delete(Long id);
-    Utilisateur getById(Long id);
-    Utilisateur authenticate(String login, String password);
-    boolean changePassword(Long id, String oldPassword, String newPassword);
-}
+TASK /
+- Design Patterns

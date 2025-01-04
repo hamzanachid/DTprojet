@@ -1,25 +1,22 @@
 package org.example.services.impl;
 
 import org.example.dao.UtilisateurDAO;
+import org.example.dao.impl.UtilisateurDAOImpl;
 import org.example.entities.Utilisateur;
-import org.example.enums.Role;
+import org.example.enums.EnumRole;
 import org.example.services.UtilisateurService;
 import org.example.builders.UtilisateurBuilder;
-
 import java.util.List;
 import java.util.Optional;
 
 public class UtilisateurServiceImpl implements UtilisateurService {
+    private static final UtilisateurDAO utilisateurDAO = UtilisateurDAOImpl.instance;
+    public static final UtilisateurService instance = new UtilisateurServiceImpl();
 
-
-    private final UtilisateurDAO utilisateurDAO;
-
-    public UtilisateurServiceImpl(UtilisateurDAO utilisateurDAO) {
-        this.utilisateurDAO = utilisateurDAO;
-    }
+    private UtilisateurServiceImpl() {}
 
     @Override
-    public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
+    public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role) {
         Utilisateur utilisateur = new UtilisateurBuilder()
                 .withNom(nom)
                 .withPrenom(prenom)
@@ -47,7 +44,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     }
 
     @Override
-    public List<Utilisateur> getUtilisateursByRole(Role role) {
+    public List<Utilisateur> getUtilisateursByRole(EnumRole role) {
         return utilisateurDAO.findByRole(role);
     }
 
@@ -77,9 +74,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     }
 
     @Override
-    public boolean authenticateUtilisateur(String login, String motDePasse) {
-        Optional<Utilisateur> utilisateur = utilisateurDAO.authenticate(login, motDePasse);
-        return utilisateur.isPresent();
+    public Optional<Utilisateur> authenticateUtilisateur(String login, String motDePasse) {
+        return utilisateurDAO.authenticate(login, motDePasse);
     }
 
     @Override
@@ -103,7 +99,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     }
 
     @Override
-    public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, Role role) {
+    public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role) {
         Utilisateur utilisateur = new UtilisateurBuilder()
                 .withNom(nom)
                 .withPrenom(prenom)
