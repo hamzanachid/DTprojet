@@ -7,7 +7,7 @@ import org.example.entities.Module;
 
 import java.util.List;
 
-public   class ElementDeModuleBuilder {
+public class ElementDeModuleBuilder {
     private Long id;
     private Module module;
     private Filiere filiere;

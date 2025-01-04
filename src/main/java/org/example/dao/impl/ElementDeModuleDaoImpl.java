@@ -36,9 +36,26 @@ public class ElementDeModuleDaoImpl implements ElementDeModuleDAO {
             return elementDeModule;
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            return elementDeModule;
         }
     }
+
+    @Override
+    public ElementDeModule findByName(String name) {
+        String query = "SELECT * FROM elementDeModule WHERE nom = ?;";
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, name);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return mapToElementDeModuleDao(resultSet);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     @Override
     public ElementDeModule findById(Long id) {
