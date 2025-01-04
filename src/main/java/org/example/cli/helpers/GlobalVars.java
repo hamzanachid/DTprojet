@@ -1,6 +1,13 @@
 package org.example.cli.helpers;
 
- 
+
+import org.example.entities.Utilisateur;
+import org.example.services.*;
+import org.example.services.impl.*;
+import org.jline.reader.LineReader;
+import org.jline.terminal.Terminal;
+
+import java.io.PrintWriter;
 
 public class GlobalVars {
     public static Terminal terminal;

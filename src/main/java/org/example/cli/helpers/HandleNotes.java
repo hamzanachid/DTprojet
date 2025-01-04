@@ -3,16 +3,19 @@ package org.example.cli.helpers;
 import org.example.entities.*;
 import org.example.services.ElementDeModuleService;
 import org.example.services.EtudiantService;
+import org.example.services.ModaliteEvaluationService;
 import org.example.services.NoteService;
 import org.example.services.impl.ElementsDeModuleServiceImpl;
 import org.example.services.impl.EtudiantServiceImpl;
+import org.example.services.impl.ModaliteEvaluationServiceImpl;
 import org.example.services.impl.NoteServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.example.cli.Main.prompt;
+import static org.example.cli.helpers.GlobalVars.prompt;
+
 
 public class HandleNotes {
     private static final ElementDeModuleService elementDeModuleService= ElementsDeModuleServiceImpl.instance;
@@ -89,7 +92,7 @@ public class HandleNotes {
 
     private static List<ModaliteEvaluation> displayAndFetchModalites(ElementDeModule element) {
         System.out.println("Modalities:");
-        List<ModaliteEvaluation> modaliteEvaluations = modaliteEvaliationService.findByElementId(element.getId());
+        List<ModaliteEvaluation> modaliteEvaluations = modaliteEvaliationService.findByElement(element);
         modaliteEvaluations.forEach(c -> System.out.println(c.getModaliteEvaluationType().name()));
         return modaliteEvaluations;
     }

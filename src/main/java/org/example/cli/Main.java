@@ -1,8 +1,23 @@
 package org.example.cli;
 
+import org.example.entities.Professeur;
+import org.example.entities.Utilisateur;
+import org.example.enums.EnumRole;
+import org.jline.reader.LineReaderBuilder;
+import org.jline.terminal.TerminalBuilder;
+
 import java.io.IOException;
 import java.util.*;
- 
+
+import static org.example.cli.helpers.GlobalVars.*;
+ import static org.example.cli.helpers.HandleElementModule.handleElementModule;
+import static org.example.cli.helpers.HandleEtudiants.handleEtudiants;
+import static org.example.cli.helpers.HandleFilieres.handleFilieres;
+import static org.example.cli.helpers.HandleModaliteEvaluation.handleModaliteEvaluation;
+import static org.example.cli.helpers.HandleModules.handleModules;
+import static org.example.cli.helpers.HandleNotes.handleElementNotes;
+import static org.example.cli.helpers.HandleProfesseurs.handleProfessors;
+
 
 @SuppressWarnings("unused")
 public class Main {
@@ -45,7 +60,6 @@ public class Main {
         Utilisateur utilisateur = ConnectUtilisateur(login, password);
         if (utilisateur != null) {
             currentRole = utilisateur.getRole().name();
-            currentUser=utilisateur;
             isLoggedIn = true;
             System.out.println("Logged in as " + currentRole);
             if(currentRole.equals(EnumRole.PROFESSOR.name())){
@@ -71,8 +85,7 @@ public class Main {
         } else if("PROFESSOR".equals(currentRole)){
             options = Arrays.asList(
                     "1. Choose Elements",
-                    "2. Change Password",
-                    "3. Logout"
+                    "2. Logout"
             );
         }
         System.out.println("\nMain Menu");
@@ -96,11 +109,12 @@ public class Main {
         } else {
             switch (choice) { 
                 case "1": handleElementNotes(new Professeur()); break;
-                case "2": handlePasswordChange(); break;
-                case "3": handleLogout(); break;  
+                case "2": handleLogout(); break;
             }
         }
         return true;
     }
+
+
 
 }
