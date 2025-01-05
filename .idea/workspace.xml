@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="A lot of stuff, errors fixed, cli added, test!">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="Mockito Tests done for &quot;Etudiant&quot; Service class.">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/EtudiantDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/EtudiantDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/EtudiantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/EtudiantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/EtudiantServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/EtudiantServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/entities/Utilisateur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/entities/UtilisateurTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/services/filiereService/FiliereServiceTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736034844785</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Mockito Tests done for &quot;Etudiant&quot; Service class.">
+      <option name="closed" value="true" />
+      <created>1736076010915</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736076010915</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -262,6 +262,7 @@
     <MESSAGE value="Merge pull request #1 from hamzanachid/feat-HamzaJob&#10;&#10;Feat hamza job" />
     <MESSAGE value="errors but okay" />
     <MESSAGE value="A lot of stuff, errors fixed, cli added, test!" />
-    <option name="LAST_COMMIT_MESSAGE" value="A lot of stuff, errors fixed, cli added, test!" />
+    <MESSAGE value="Mockito Tests done for &quot;Etudiant&quot; Service class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mockito Tests done for &quot;Etudiant&quot; Service class." />
   </component>
 </project>
