@@ -1,29 +1,42 @@
 package org.example.services.impl;
 
-import org.example.config.DatabaseConnection;
 import org.example.dao.EtudiantDao;
-import org.example.dao.impl.EtudiantDaoImpl;
 import org.example.entities.Etudiant;
 import org.example.services.EtudiantService;
-import java.sql.SQLException;
+
 import java.util.List;
 
 public class EtudiantServiceImpl implements EtudiantService {
-    private final DatabaseConnection connectionManager = DatabaseConnection.getInstance();
-    public final static EtudiantService instance = new EtudiantServiceImpl();
-    private final EtudiantDao etudiantDao = EtudiantDaoImpl.instance;
+    public static EtudiantService instance;
+    private final EtudiantDao etudiantDao;
 
-    private EtudiantServiceImpl() {
+    private EtudiantServiceImpl(EtudiantDao etudiantDao) {
+        this.etudiantDao = etudiantDao;
+    }
+    public static EtudiantService getInstance(EtudiantDao etudiantDao) {
+        if(instance == null) {
+            instance = new EtudiantServiceImpl(etudiantDao);
+        }
+        return instance;
+    }
+    @Override
+    public Etudiant create(Etudiant etudiant) {
+        if (etudiant == null) {
+            throw new IllegalArgumentException("Student cannot be null");
+        }
+
+        if (etudiant.getFirstName() == null || etudiant.getFirstName().trim().isEmpty()) {
+            throw new IllegalArgumentException("First name is required");
+        }
+
+        return etudiantDao.create(etudiant);
     }
 
     @Override
-    public Etudiant create(Etudiant etudiant) {
-        try {
-            return etudiantDao.create(etudiant);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public boolean delete(Long id) {
+        return etudiantDao.delete(id);
     }
+
     @Override
     public List<Etudiant> findEtudiantByElement(Long element_id) {
         return etudiantDao.findEtudiantByElement(element_id);
@@ -31,16 +44,7 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public void update(Etudiant etudiant, Etudiant newEtudiant) {
-        try {
-            etudiantDao.update(etudiant, newEtudiant);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public void delete(Long id) {
-        etudiantDao.delete(id);
+        etudiantDao.update(etudiant, newEtudiant);
     }
 
     @Override

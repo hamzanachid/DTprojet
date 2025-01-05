@@ -6,7 +6,7 @@ import java.util.List;
 public interface EtudiantService {
     Etudiant create(Etudiant etudiant);
     void update(Etudiant etudiant, Etudiant newEtudiant);
-    void delete(Long id);
+    boolean delete(Long id);
     Etudiant getById(Long id);
     List<Etudiant> findEtudiantByElement(Long element_id);
     List<Etudiant> getByFiliere(Long filiereId);

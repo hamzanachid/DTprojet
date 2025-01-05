@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface EtudiantDao {
-    Etudiant create(Etudiant etudiant) throws SQLException;
-    boolean update(Etudiant etudiant, Etudiant newEtudiant) throws SQLException;
+    Etudiant create(Etudiant etudiant);
+    boolean update(Etudiant etudiant, Etudiant newEtudiant);
     boolean delete(Long id);
     Etudiant findById(Long id);
     public List<Etudiant> findEtudiantByElement(Long element_id);
