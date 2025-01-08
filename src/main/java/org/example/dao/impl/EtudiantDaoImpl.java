@@ -69,11 +69,11 @@ public class EtudiantDaoImpl implements EtudiantDao {
             String sql = "DELETE FROM etudiant WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setLong(1, id);
-            stmt.executeUpdate();
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting user", e);
         }
-        return true;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
                 return mapResultSetToEtudiant(rs);
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating user", e);
+            throw new RuntimeException("Error finding user", e);
         }
         return null;
     }
