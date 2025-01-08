@@ -127,7 +127,7 @@ public class ProfesseurDaoImpl implements ProfesseurDao {
 
     @Override
     public void update(Professeur professeur) {
-        String query = "UPDATE professeur SET nom = ?, prenom = ?, specialite = ?, code = ?;";
+        String query = "UPDATE professeur SET nom = ?, prenom = ?, specialite = ?, code = ? WHERE id = ?;";
         try (
           Connection connection = databaseConnection.getConnection();
           PreparedStatement statement = connection.prepareStatement(query);
@@ -136,6 +136,9 @@ public class ProfesseurDaoImpl implements ProfesseurDao {
             statement.setString(2, professeur.getPrenom());
             statement.setString(3, professeur.getSpecialite());
             statement.setString(4, professeur.getCode());
+            statement.setLong(5, professeur.getId());
+
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
