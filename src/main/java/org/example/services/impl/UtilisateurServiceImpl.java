@@ -3,9 +3,9 @@ package org.example.services.impl;
 import org.example.dao.UtilisateurDAO;
 import org.example.dao.impl.UtilisateurDAOImpl;
 import org.example.entities.Utilisateur;
-import org.example.enums.EnumRole;
+import org.example.utils.EnumRole;
 import org.example.services.UtilisateurService;
-import org.example.builders.UtilisateurBuilder;
+import org.example.entities.builders.UtilisateurBuilder;
 import java.util.List;
 import java.util.Optional;
 

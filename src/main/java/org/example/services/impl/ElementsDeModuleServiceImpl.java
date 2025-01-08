@@ -11,6 +11,8 @@ import org.example.services.FiliereService;
 
 import java.util.List;
 
+import static org.example.utils.CheckAccess.checkUserAccess;
+
 public class ElementsDeModuleServiceImpl implements ElementDeModuleService {
     private static ElementDeModuleDAO elementDeModuleDAO = ElementDeModuleDaoImpl.instance;
     public static final ElementsDeModuleServiceImpl instance = new ElementsDeModuleServiceImpl();
@@ -19,6 +21,7 @@ public class ElementsDeModuleServiceImpl implements ElementDeModuleService {
     }
     @Override
     public ElementDeModule create(ElementDeModule elementDeModule) {
+        checkUserAccess();
         if (elementDeModule == null) {
             throw new IllegalArgumentException("element De Module cannot be null");
         }
@@ -45,6 +48,8 @@ public class ElementsDeModuleServiceImpl implements ElementDeModuleService {
 
     @Override
     public void update(ElementDeModule elementDeModule) {
+        checkUserAccess();
+
         if (elementDeModule == null || elementDeModule.getId() <= 0) {
             throw new IllegalArgumentException("Invalid Filiere or ID");
         }
@@ -53,6 +58,8 @@ public class ElementsDeModuleServiceImpl implements ElementDeModuleService {
 
     @Override
     public void delete(Long id) {
+        checkUserAccess();
+
         if (id == null || id <= 0) {
             throw new IllegalArgumentException("Invalid element de module ID");
         }
@@ -61,6 +68,7 @@ public class ElementsDeModuleServiceImpl implements ElementDeModuleService {
 
     @Override
     public List<ElementDeModule> findAll() {
+
         List<ElementDeModule> elementDeModules = elementDeModuleDAO.findAll();
         if (elementDeModules == null || elementDeModules.isEmpty()) {
             throw new IllegalStateException("No element De Modules found in the database");

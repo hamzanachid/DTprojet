@@ -1,34 +1,39 @@
 package org.example.services.impl;
 
+
 import org.example.dao.EtudiantDao;
 import org.example.entities.Etudiant;
 import org.example.services.EtudiantService;
+import org.example.validation.BasicValidationStrategy;
+import org.example.validation.CompositeValidationStrategy;
+import org.example.validation.ValidationStrategy;
 
 import java.util.List;
+
+import static org.example.utils.CheckAccess.checkUserAccess;
 
 public class EtudiantServiceImpl implements EtudiantService {
     public static EtudiantService instance;
     private final EtudiantDao etudiantDao;
+    private final ValidationStrategy validationStrategy;
+
 
     private EtudiantServiceImpl(EtudiantDao etudiantDao) {
         this.etudiantDao = etudiantDao;
+        this.validationStrategy = new CompositeValidationStrategy(new BasicValidationStrategy(), new BasicValidationStrategy());
     }
+
     public static EtudiantService getInstance(EtudiantDao etudiantDao) {
         if(instance == null) {
             instance = new EtudiantServiceImpl(etudiantDao);
         }
         return instance;
     }
-    @Override
+
+     @Override
     public Etudiant create(Etudiant etudiant) {
-        if (etudiant == null) {
-            throw new IllegalArgumentException("Student cannot be null");
-        }
-
-        if (etudiant.getFirstName() == null || etudiant.getFirstName().trim().isEmpty()) {
-            throw new IllegalArgumentException("First name is required");
-        }
-
+        validationStrategy.validate(etudiant);
+        checkUserAccess();
         return etudiantDao.create(etudiant);
     }
 
@@ -44,6 +49,8 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public void update(Etudiant etudiant, Etudiant newEtudiant) {
+        validationStrategy.validate(etudiant);
+        checkUserAccess();
         etudiantDao.update(etudiant, newEtudiant);
     }
 

@@ -1,11 +1,11 @@
 package org.example.dao.impl;
 
-import org.example.config.DatabaseConnection;
+import org.example.dao.config.DatabaseConnection;
 import org.example.dao.ElementDeModuleDAO;
 import org.example.dao.ModaliteEvaluationDao;
 import org.example.entities.ElementDeModule;
 import org.example.entities.ModaliteEvaluation;
-import org.example.enums.ModaliteEvaluationType;
+import org.example.utils.ModaliteEvaluationType;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

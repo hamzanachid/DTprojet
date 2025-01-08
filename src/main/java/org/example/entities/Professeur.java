@@ -1,6 +1,6 @@
 package org.example.entities;
 
-import org.example.builders.ProfesseurBuilder;
+import org.example.entities.builders.ProfesseurBuilder;
 
 import java.util.List;
 
