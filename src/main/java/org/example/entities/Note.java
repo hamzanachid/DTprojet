@@ -1,6 +1,6 @@
 package org.example.entities;
 
-import org.example.builders.NoteBuilder;
+import org.example.entities.builders.NoteBuilder;
 
 public class Note {
     private int id;

@@ -1,12 +1,14 @@
 package org.example.services.impl;
 
-import org.example.config.DatabaseConnection;
+import org.example.dao.config.DatabaseConnection;
 import org.example.dao.EtudiantDao;
 import org.example.dao.impl.EtudiantDaoImpl;
 import org.example.entities.Etudiant;
 import org.example.services.EtudiantService;
 import java.sql.SQLException;
 import java.util.List;
+
+import static org.example.utils.CheckAccess.checkUserAccess;
 
 public class EtudiantServiceImpl implements EtudiantService {
     private final DatabaseConnection connectionManager = DatabaseConnection.getInstance();
@@ -18,6 +20,8 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public Etudiant create(Etudiant etudiant) {
+        checkUserAccess();
+
         try {
             return etudiantDao.create(etudiant);
         } catch (SQLException e) {
@@ -31,6 +35,8 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public void update(Etudiant etudiant, Etudiant newEtudiant) {
+        checkUserAccess();
+
         try {
             etudiantDao.update(etudiant, newEtudiant);
         } catch (SQLException e) {

@@ -1,6 +1,6 @@
 package org.example.dao.impl;
 
-import org.example.config.DatabaseConnection;
+import org.example.dao.config.DatabaseConnection;
 import org.example.dao.ProfesseurDao;
 import org.example.entities.Professeur;
 import org.example.entities.Utilisateur;

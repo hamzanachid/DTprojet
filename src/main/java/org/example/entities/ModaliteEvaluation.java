@@ -1,8 +1,7 @@
 package org.example.entities;
 
-import org.example.builders.ModaliteEvaluationBuilder;
-import org.example.builders.ModuleBuilder;
-import org.example.enums.ModaliteEvaluationType;
+import org.example.entities.builders.ModaliteEvaluationBuilder;
+import org.example.utils.ModaliteEvaluationType;
 
 public class ModaliteEvaluation {
     private Long id;

@@ -1,7 +1,6 @@
 package org.example.entities;
 
-import org.example.builders.EtudiantBuilder;
-import org.example.builders.ModuleBuilder;
+import org.example.entities.builders.EtudiantBuilder;
 
 import java.util.List;
 
