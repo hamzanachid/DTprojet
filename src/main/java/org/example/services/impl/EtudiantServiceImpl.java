@@ -1,12 +1,9 @@
 package org.example.services.impl;
 
 
-import org.example.dao.config.DatabaseConnection;
 import org.example.dao.EtudiantDao;
 import org.example.entities.Etudiant;
 import org.example.services.EtudiantService;
-
-import java.sql.SQLException;
 import java.util.List;
 
 import static org.example.utils.CheckAccess.checkUserAccess;
