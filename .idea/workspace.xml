@@ -80,7 +80,6 @@
     "JUnit.FiliereServiceTest.testCreate.executor": "Run",
     "JUnit.ModuleDaoImplTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true"
   }
@@ -165,6 +164,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.EtudiantServiceTest" />
+      <item itemvalue="JUnit.FiliereServiceTest" />
+      <item itemvalue="JUnit.FiliereServiceTest.testCreate" />
+      <item itemvalue="JUnit.ModuleDaoImplTest" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ModuleDaoImplTest" />

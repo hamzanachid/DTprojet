@@ -16,10 +16,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     private UtilisateurServiceImpl() {}
 
     @Override
-    public Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role) {
+    public Utilisateur createUtilisateur(String login, String motDePasse, EnumRole role) {
         Utilisateur utilisateur = new UtilisateurBuilder()
-                .withNom(nom)
-                .withPrenom(prenom)
                 .withLogin(login)
                 .withMotDePasse(motDePasse)
                 .withRole(role)
@@ -96,18 +94,5 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public List<Utilisateur> saveAllUtilisateurs(List<Utilisateur> utilisateurs) {
         return utilisateurDAO.saveAll(utilisateurs);
-    }
-
-    @Override
-    public Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role) {
-        Utilisateur utilisateur = new UtilisateurBuilder()
-                .withNom(nom)
-                .withPrenom(prenom)
-                .withLogin(login)
-                .withMotDePasse(motDePasse)
-                .withRole(role)
-                .build();
-
-        return utilisateurDAO.create(utilisateur);
     }
 }

@@ -16,15 +16,13 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Utilisateur create(Utilisateur utilisateur) {
-        String sql = "INSERT INTO utilisateur (nom, prenom, login, mot_de_passe, role) VALUES (?, ?, ?, ?, ?) RETURNING id";
+        String sql = "INSERT INTO utilisateur (login, mot_de_passe, role) VALUES (?, ?, ?::role_enum) RETURNING id";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, utilisateur.getNom());
-            stmt.setString(2, utilisateur.getPrenom());
-            stmt.setString(3, utilisateur.getLogin());
-            stmt.setString(4, utilisateur.getMotDePasse());
-            stmt.setString(5, utilisateur.getRole().name());
+            stmt.setString(1, utilisateur.getLogin());
+            stmt.setString(2, utilisateur.getMotDePasse());
+            stmt.setString(3, utilisateur.getRole().name());
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -130,16 +128,14 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
     @Override
     public Utilisateur update(Utilisateur utilisateur) {
-        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, login = ?, mot_de_passe = ?, role = ? WHERE id = ?";
+        String sql = "UPDATE utilisateur SET login = ?, mot_de_passe = ?, role = ? WHERE id = ?";
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, utilisateur.getNom());
-            stmt.setString(2, utilisateur.getPrenom());
-            stmt.setString(3, utilisateur.getLogin());
-            stmt.setString(4, utilisateur.getMotDePasse());
-            stmt.setString(5, utilisateur.getRole().name());
-            stmt.setLong(6, utilisateur.getId());
+            stmt.setString(1, utilisateur.getLogin());
+            stmt.setString(2, utilisateur.getMotDePasse());
+            stmt.setString(3, utilisateur.getRole().name());
+            stmt.setLong(4, utilisateur.getId());
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -232,8 +228,6 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
     private Utilisateur mapResultSetToUtilisateur(ResultSet rs) throws SQLException {
         return new Utilisateur(
                 rs.getLong("id"),
-                rs.getString("nom"),
-                rs.getString("prenom"),
                 rs.getString("login"),
                 rs.getString("mot_de_passe"),
                 EnumRole.valueOf(rs.getString("role"))
