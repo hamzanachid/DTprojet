@@ -1,12 +1,10 @@
 package org.example.entities;
 
-import org.example.builders.FiliereBuilder;
-import org.example.builders.ModuleBuilder;
-import org.example.enums.Semestre;
+import org.example.entities.builders.ModuleBuilder;
+import org.example.utils.Semestre;
 
 import java.util.List;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Module {
@@ -18,7 +16,7 @@ public class Module {
     private List<ElementDeModule> elementsDeModule;
 
     // Default Constructor
-    public Module() {}
+    public Module(long l, String number, String javaModule, Semestre s5, Object o) {}
 
     // Parameterized Constructor
     public Module(Long id, String code, String nom, Filiere filiere, Semestre semestre, List<ElementDeModule> elementsDeModule) {

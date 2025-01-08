@@ -1,13 +1,11 @@
 package org.example.dao.impl;
 
-import org.example.config.DatabaseConnection;
-import org.example.dao.ElementDeModuleDAO;
+import org.example.dao.config.DatabaseConnection;
 import org.example.dao.FiliereDao;
 import org.example.dao.ModuleDao;
-import org.example.entities.ElementDeModule;
 import org.example.entities.Filiere;
 import org.example.entities.Module;
-import org.example.enums.Semestre;
+import org.example.utils.Semestre;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -134,7 +132,7 @@ public class ModuleDaoImpl implements ModuleDao {
     }
 
     private Module mapResultSetToModule(ResultSet resultSet) throws SQLException {
-        Module module = new Module();
+        Module module = new Module(1L, "1234", "Java Module", Semestre.S5, null);
         module.setId(resultSet.getLong("id"));
         module.setCode(resultSet.getString("code"));
         module.setNom(resultSet.getString("nom"));

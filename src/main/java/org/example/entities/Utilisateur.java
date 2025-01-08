@@ -1,7 +1,7 @@
 package org.example.entities;
 
-import org.example.builders.UtilisateurBuilder;
-import org.example.enums.EnumRole;
+import org.example.entities.builders.UtilisateurBuilder;
+import org.example.utils.EnumRole;
 
 import java.util.Objects;
 

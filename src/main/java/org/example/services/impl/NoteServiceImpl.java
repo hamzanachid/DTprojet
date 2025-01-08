@@ -4,13 +4,13 @@ import org.example.dao.ElementDeModuleDAO;
 import org.example.dao.NoteDao;
 import org.example.dao.impl.ElementDeModuleDaoImpl;
 import org.example.dao.impl.NoteDaoImpl;
-import org.example.entities.ElementDeModule;
 import org.example.entities.ModaliteEvaluation;
 import org.example.entities.Note;
 import org.example.services.NoteService;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static org.example.utils.cli.helpers.GlobalVars.prompt;
 
 public class NoteServiceImpl implements NoteService {
     private final NoteDao noteDao = NoteDaoImpl.instance;
@@ -24,18 +24,6 @@ public class NoteServiceImpl implements NoteService {
         return instance;
     }
 
-    public boolean  isValidNote(Note note) {
-        if (note.getNote() < 0 || note.getNote() > 20) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean validateDraft(List<Note> draftNotes) {
-        // true if all true
-        return draftNotes.stream().allMatch(c -> isValidNote(c));
-    }
-
     @Override
     public void addNote(Note note) {
         noteDao.create(note);
@@ -44,43 +32,6 @@ public class NoteServiceImpl implements NoteService {
     public void updateNote(Note note) {
         noteDao.update(note);
     }
-
-    @Override
-    public void saveDraft() {
-        if(!validateDraft(draftNotes)){
-            return;
-        }
-        for (Note note : draftNotes) {
-            noteDao.create(note);
-        }
-        draftNotes.clear();
-    }
-
-    @Override
-    public void markAbsent(Long studentId, Long modalityId) {
-
-    }
-
-    @Override
-    public boolean validateElement(Long elementId, boolean confirmZeroTwenty) {
-        return false;
-    }
-
-    private boolean checkNotes(List<Note> notes, boolean confirmZeroTwenty) {
-        for (Note note : notes) {
-            if (note == null) return false;
-            if (!confirmZeroTwenty && !note.isAbsence() && (note.getNote() == 0 || note.getNote() == 20)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private void updateModuleAverage(Long moduleId) {
-        double moduleAverage = noteDao.calculateModuleAverage(moduleId);
-        elementDeModuleDao.updateModuleAverage(moduleId, moduleAverage);
-    }
-
     @Override
     public List<Note> getNotesByElement(Long elementId) {
         return noteDao.getByElement(elementId);
@@ -103,13 +54,13 @@ public class NoteServiceImpl implements NoteService {
                     .anyMatch(note -> !note.isValidation());
 
             if (!validNotes) {
-                double modaliteTotal = notes.stream()
+                double totalNote = notes.stream()
                         .mapToDouble(Note::getNote)
                         .sum();
 
-                double modaliteAverage = modaliteTotal / notes.size();
+                double avgTotal = totalNote / notes.size();
 
-                avg += modaliteAverage * modalite.getCoefficient();
+                avg += avgTotal * modalite.getCoefficient();
                 coef += modalite.getCoefficient();
             }
             else {
@@ -125,13 +76,22 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public double getModuleAverage(Long moduleId) {
-        return noteDao.calculateModuleAverage(moduleId);
+    public  void validateRange(List<Note> notes) throws IllegalArgumentException {
+        boolean areAllNotesValid = notes.stream().allMatch(note -> note.getNote() >= 0 && note.getNote() <= 20);
+        if (!areAllNotesValid) {
+            throw new IllegalArgumentException("Error: All notes must be between 0 and 20.");
+        }
     }
-
     @Override
-    public void exportNotes(Long elementId) {
 
+    public  void validateEdgeNotes(List<Note> notes) throws IllegalStateException {
+        boolean hasEdgeNotes = notes.stream().anyMatch(note -> note.getNote() == 0 || note.getNote() == 20);
+        if (hasEdgeNotes) {
+            String confirmation = prompt("Some notes are 0 or 20. Do you confirm validation? (yes/no)");
+            if (!confirmation.equalsIgnoreCase("yes")) {
+                throw new IllegalStateException("Validation canceled by the user.");
+            }
+        }
     }
 
 }
