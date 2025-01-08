@@ -1,7 +1,7 @@
 package org.example.services;
 
 import org.example.entities.Utilisateur;
-import org.example.enums.EnumRole;
+import org.example.utils.EnumRole;
 
 import java.util.List;
 import java.util.Optional;

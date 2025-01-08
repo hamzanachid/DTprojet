@@ -1,10 +1,15 @@
 package org.example.services.impl;
 
+
+import org.example.dao.config.DatabaseConnection;
 import org.example.dao.EtudiantDao;
 import org.example.entities.Etudiant;
 import org.example.services.EtudiantService;
 
+import java.sql.SQLException;
 import java.util.List;
+
+import static org.example.utils.CheckAccess.checkUserAccess;
 
 public class EtudiantServiceImpl implements EtudiantService {
     public static EtudiantService instance;
@@ -19,19 +24,12 @@ public class EtudiantServiceImpl implements EtudiantService {
         }
         return instance;
     }
-    @Override
+     @Override
     public Etudiant create(Etudiant etudiant) {
-        if (etudiant == null) {
-            throw new IllegalArgumentException("Student cannot be null");
-        }
+        checkUserAccess();
 
-        if (etudiant.getFirstName() == null || etudiant.getFirstName().trim().isEmpty()) {
-            throw new IllegalArgumentException("First name is required");
-        }
-
-        return etudiantDao.create(etudiant);
-    }
-
+         return etudiantDao.create(etudiant);
+     }
     @Override
     public boolean delete(Long id) {
         return etudiantDao.delete(id);
@@ -44,8 +42,13 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public void update(Etudiant etudiant, Etudiant newEtudiant) {
+
+        checkUserAccess();
+
         etudiantDao.update(etudiant, newEtudiant);
     }
+
+
 
     @Override
     public Etudiant getById(Long id) {

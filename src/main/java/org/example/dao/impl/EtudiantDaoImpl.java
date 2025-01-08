@@ -1,6 +1,6 @@
 package org.example.dao.impl;
 
-import org.example.config.DatabaseConnection;
+import org.example.dao.config.DatabaseConnection;
 import org.example.dao.EtudiantDao;
 import org.example.entities.Etudiant;
 import org.example.services.FiliereService;
@@ -113,17 +113,17 @@ public class EtudiantDaoImpl implements EtudiantDao {
     @Override
     public List<Etudiant> findEtudiantByElement(Long element_id) {
         String sql = "SELECT \n" +
-                "    e.id  AS  id,\n" +
-                "    e.nom AS  nom,\n" +
-                "    e.prenom AS  prenom,\n" +
-                "    e.matricule AS matricule ,\n" +
-                "\te.filiere_id as filiere_id\n" +
+                "    e.id AS id,\n" +
+                "    e.first_name AS first_name,\n" +
+                "    e.last_name AS last_name,\n" +
+                "    e.matricule AS matricule,\n" +
+                "    e.filiere_id AS filiere_id\n" +
                 "FROM \n" +
                 "    Etudiant e\n" +
                 "JOIN \n" +
                 "    EtudiantModule em ON e.id = em.etudiant_id\n" +
                 "JOIN \n" +
-                "    Modules m ON em.module_id = m.id\n" +
+                "    Module m ON em.module_id = m.id\n" +
                 "JOIN \n" +
                 "    ElementDeModule edm ON edm.module_id = m.id\n" +
                 "WHERE \n" +

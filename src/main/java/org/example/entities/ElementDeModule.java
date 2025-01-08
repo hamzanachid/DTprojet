@@ -1,11 +1,9 @@
 package org.example.entities;
 
-import org.example.builders.ElementDeModuleBuilder;
-import org.example.builders.FiliereBuilder;
+import org.example.entities.builders.ElementDeModuleBuilder;
 
 import java.util.List;
 
-import java.util.List;
 import java.util.Objects;
 
 public class ElementDeModule {

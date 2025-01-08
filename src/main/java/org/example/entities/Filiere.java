@@ -1,6 +1,6 @@
 package org.example.entities;
 
-import org.example.builders.FiliereBuilder;
+import org.example.entities.builders.FiliereBuilder;
 
 import java.util.List;
 import java.util.Objects;
