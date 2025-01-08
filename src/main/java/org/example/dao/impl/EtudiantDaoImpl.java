@@ -110,6 +110,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
         }
         return etudiantList;
     }
+
     @Override
     public List<Etudiant> findEtudiantByElement(Long element_id) {
         String sql = "SELECT \n" +

@@ -1,6 +1,5 @@
 package org.example.cli;
 
-import org.example.entities.Professeur;
 import org.example.entities.Utilisateur;
 import org.example.enums.EnumRole;
 import org.jline.reader.LineReaderBuilder;
@@ -15,7 +14,6 @@ import static org.example.cli.helpers.HandleModaliteEvaluation.handleModaliteEva
 import static org.example.cli.helpers.HandleModules.handleModules;
 import static org.example.cli.helpers.HandleNotes.handleElementNotes;
 import static org.example.cli.helpers.HandleProfesseurs.handleProfessors;
-
 
 @SuppressWarnings("unused")
 public class Main {
@@ -91,7 +89,6 @@ public class Main {
         return prompt("Select option");
     }
 
-
     private static boolean handleMenuChoice(String choice) {
         if ("ADMIN".equals(currentRole)) {
             switch (choice) {
@@ -111,7 +108,4 @@ public class Main {
         }
         return true;
     }
-
-
-
 }
