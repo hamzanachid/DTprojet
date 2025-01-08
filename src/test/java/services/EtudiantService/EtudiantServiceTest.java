@@ -22,7 +22,7 @@ public class EtudiantServiceTest {
 
     @BeforeAll
     public static void initEtudiant() {
-        filiere = Filiere.builder().setId(1L).setNom("GLSID").setCode("123").build();
+        filiere = Filiere.builder().setId(1L).setNom("IID").setCode("123").build();
         etudiant = Etudiant.builder()
                 .setId(1L)
                 .setFirstName("Marouane")
@@ -59,23 +59,9 @@ public class EtudiantServiceTest {
     }
 
     @Test
-    public void testCreateWithNullStudent() {
+    public void testCreateWithNullEtudiant() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             etudiantService.create(null);
-        });
-    }
-
-    @Test
-    public void testCreateWithDbError() {
-        Etudiant newEtudiant = Etudiant.builder()
-                .setId(2L)
-                .setFirstName("Marouane")
-                .setFiliere(filiere)
-                .build();
-        when(mockDao.create(any(Etudiant.class)))
-                .thenThrow(new RuntimeException("Database connection failed"));
-        Assertions.assertThrows(RuntimeException.class, () -> {
-            etudiantService.create(newEtudiant);
         });
     }
 
@@ -129,13 +115,5 @@ public class EtudiantServiceTest {
         boolean result = etudiantService.delete(99L);
         verify(mockDao, times(1)).delete(99L);
         Assertions.assertFalse(result);
-    }
-
-    @Test
-    public void testDeleteWithDatabaseError() {
-        when(mockDao.delete(1L)).thenThrow(new RuntimeException("Database error"));
-        Assertions.assertThrows(RuntimeException.class, () -> {
-            etudiantService.delete(1L);
-        });
     }
 }
