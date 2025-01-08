@@ -4,57 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="A lot of stuff, errors fixed, cli added, test!">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/notes/HandleNotes.java" afterDir="false" />
+    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="Mockito Tests done for &quot;Etudiant&quot; Service class.">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_31_2024_5_32_PM_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_31_2024_5_32_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/ElementDeModuleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/builders/ElementDeModuleBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/EtudiantBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/builders/EtudiantBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/FiliereBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/builders/FiliereBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/ModaliteEvaluationBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/builders/ModaliteEvaluationBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/ModuleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/builders/ModuleBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/NoteBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/builders/NoteBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/ProfesseurBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/builders/ProfesseurBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/builders/UtilisateurBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/builders/UtilisateurBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/GlobalVars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/GlobalVars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleElementModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/HandleElementModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleEtudiants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/HandleEtudiants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleFilieres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/HandleFilieres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleModaliteEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/HandleModaliteEvaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleModules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/HandleModules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleNotes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/helpers/HandleProfesseurs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/HandleProfesseurs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/config/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/NoteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/NoteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/UtilisateurDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ElementDeModuleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ElementDeModuleDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/FiliereDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/FiliereDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ModaliteEvaluationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ModaliteEvaluationDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ModuleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ModuleDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/NoteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/NoteDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ProfesseurDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/ProfesseurDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/UtilisateurDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ElementDeModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ElementDeModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Etudiant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Etudiant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Filiere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Filiere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/ModaliteEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/ModaliteEvaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Note.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Utilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/EnumRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/EnumRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/ModaliteEvaluationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ModaliteEvaluationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/Semestre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/Semestre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/NoteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/UtilisateurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/UtilisateurService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/EtudiantServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/EtudiantServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/NoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/NoteServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/UtilisateurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/UtilisateurServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/entities/UtilisateurTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/entities/UtilisateurTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/FixMain" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -101,11 +57,8 @@
     &quot;accountId&quot;: &quot;e86e2aee-48a0-44af-9788-4af9b65fd4f5&quot;
   }
 }</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -124,10 +77,11 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EtudiantServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.FiliereServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.FiliereServiceTest.testCreate.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Test/EtudiantService&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
@@ -137,7 +91,7 @@
       <recent name="org.example.builders" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ModuleDaoImplTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="DTProjet" />
@@ -147,6 +101,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EtudiantServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DTProjet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.EtudiantService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="services.EtudiantService" />
+      <option name="MAIN_CLASS_NAME" value="services.EtudiantService.EtudiantServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,42 +151,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ModuleDaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DTProjet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="module.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="module" />
-      <option name="MAIN_CLASS_NAME" value="module.ModuleDaoImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NoteDaoImplTest.createTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DTProjet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="note.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="note" />
-      <option name="MAIN_CLASS_NAME" value="note.NoteDaoImplTest" />
-      <option name="METHOD_NAME" value="createTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ModuleDaoImplTest" />
-        <item itemvalue="JUnit.NoteDaoImplTest.createTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.EtudiantServiceTest" />
         <item itemvalue="JUnit.FiliereServiceTest" />
         <item itemvalue="JUnit.FiliereServiceTest.testCreate" />
       </list>
@@ -296,7 +233,31 @@
       <option name="project" value="LOCAL" />
       <updated>1736031807312</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="A lot of stuff, errors fixed, cli added, test!">
+      <option name="closed" value="true" />
+      <created>1736034844785</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1736034844785</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Mockito Tests done for &quot;Etudiant&quot; Service class.">
+      <option name="closed" value="true" />
+      <created>1736076010915</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736076010915</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Mockito Tests done for &quot;Etudiant&quot; Service class.">
+      <option name="closed" value="true" />
+      <created>1736076137025</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1736076137025</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -314,6 +275,7 @@
     <MESSAGE value="Merge pull request #1 from hamzanachid/feat-HamzaJob&#10;&#10;Feat hamza job" />
     <MESSAGE value="errors but okay" />
     <MESSAGE value="A lot of stuff, errors fixed, cli added, test!" />
-    <option name="LAST_COMMIT_MESSAGE" value="A lot of stuff, errors fixed, cli added, test!" />
+    <MESSAGE value="Mockito Tests done for &quot;Etudiant&quot; Service class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mockito Tests done for &quot;Etudiant&quot; Service class." />
   </component>
 </project>
