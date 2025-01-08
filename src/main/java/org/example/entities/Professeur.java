@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import org.example.builders.ProfesseurBuilder;
+
 import java.util.List;
 
 public class Professeur {
@@ -76,7 +78,35 @@ public class Professeur {
         return utilisateur;
     }
 
+    public String getProfessorInfo() {
+        return "Professeur { " +
+          "id = " + id +
+          ", prenom = '" + prenom + '\'' +
+          ", nom = '" + nom + '\'' +
+          ", specialite = '" + specialite + '\'' +
+          ", code = '" + code + '\'' +
+          ", login = '" + utilisateur.getLogin() + '\'' +
+          " }";
+    }
+
+    @Override
+    public String toString() {
+        return "Professeur{" +
+          "id=" + id +
+          ", nom='" + nom + '\'' +
+          ", prenom='" + prenom + '\'' +
+          ", specialite='" + specialite + '\'' +
+          ", code='" + code + '\'' +
+          ", elementsDeModule=" + elementsDeModule +
+          ", utilisateur=" + utilisateur +
+          '}';
+    }
+
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
+    }
+
+    public static ProfesseurBuilder builder() {
+        return new ProfesseurBuilder();
     }
 }

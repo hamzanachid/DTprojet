@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UtilisateurService {
-    Utilisateur createUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role);
+    Utilisateur createUtilisateur(String login, String motDePasse, EnumRole role);
 
     Optional<Utilisateur> getUtilisateurById(Long id);
     Optional<Utilisateur> getUtilisateurByLogin(String login);
@@ -21,7 +21,6 @@ public interface UtilisateurService {
     Optional<Utilisateur> authenticateUtilisateur(String login, String motDePasse);
     Optional<Utilisateur> loginUtilisateur(String login, String motDePasse);
     List<Utilisateur> saveAllUtilisateurs(List<Utilisateur> utilisateurs);
-    Utilisateur signUpUtilisateur(String nom, String prenom, String login, String motDePasse, EnumRole role);
     boolean isLoginAvailable(String login);
     boolean validateMotDePasse(String motDePasse);
 }

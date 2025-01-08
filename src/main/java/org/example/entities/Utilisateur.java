@@ -7,18 +7,14 @@ import java.util.Objects;
 
 public class Utilisateur {
     private Long id;
-    private String nom;
-    private String prenom;
     private String login;
     private String motDePasse;
     private EnumRole role;
 
     public Utilisateur() {}
 
-    public Utilisateur(Long id, String nom, String prenom, String login, String motDePasse, EnumRole role) {
+    public Utilisateur(Long id, String login, String motDePasse, EnumRole role) {
         this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
         this.login = login;
         this.motDePasse = motDePasse;
         this.role = role;
@@ -30,22 +26,6 @@ public class Utilisateur {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
     }
 
     public String getLogin() {
@@ -78,8 +58,6 @@ public class Utilisateur {
         if (!(o instanceof Utilisateur)) return false;
         Utilisateur that = (Utilisateur) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(nom, that.nom) &&
-                Objects.equals(prenom, that.prenom) &&
                 Objects.equals(login, that.login) &&
                 Objects.equals(motDePasse, that.motDePasse) &&
                 role == that.role;
@@ -87,15 +65,13 @@ public class Utilisateur {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nom, prenom, login, motDePasse, role);
+        return Objects.hash(id, login, motDePasse, role);
     }
 
     @Override
     public String toString() {
         return "Utilisateur{" +
                 "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
                 ", login='" + login + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
                 ", role=" + role +

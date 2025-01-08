@@ -15,37 +15,42 @@ public class ProfesseurBuilder {
     private List<ElementDeModule> elementsDeModule;
     private Utilisateur utilisateur;
 
-    public ProfesseurBuilder withId(Long id) {
+    public ProfesseurBuilder setId(Long id) {
         this.id = id;
         return this;
     }
 
-    public ProfesseurBuilder withNom(String nom) {
+    public ProfesseurBuilder setNom(String nom) {
         this.nom = nom;
         return this;
     }
 
-    public ProfesseurBuilder withPrenom(String prenom) {
+    public ProfesseurBuilder setPrenom(String prenom) {
         this.prenom = prenom;
         return this;
     }
 
-    public ProfesseurBuilder withSpecialite(String specialite) {
+    public ProfesseurBuilder setSpecialite(String specialite) {
         this.specialite = specialite;
         return this;
     }
 
-    public ProfesseurBuilder withCode(String code) {
+    public ProfesseurBuilder setCode(String code) {
         this.code = code;
         return this;
     }
 
-    public ProfesseurBuilder withElementsDeModule(List<ElementDeModule> elementsDeModule) {
+    public ProfesseurBuilder setElementsDeModule(List<ElementDeModule> elementsDeModule) {
         this.elementsDeModule = elementsDeModule;
         return this;
     }
 
+    public ProfesseurBuilder setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+        return this;
+    }
+
     public Professeur build() {
-        return new Professeur(id,  nom, prenom, specialite, code, elementsDeModule, utilisateur);
+        return new Professeur(id, nom, prenom, specialite, code, elementsDeModule, utilisateur);
     }
 }
