@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="Mockito Tests done for &quot;Etudiant&quot; Service class.">
+    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="A lot of stuff, errors fixed, cli added, test!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/EtudiantServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/EtudiantServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/validation/MatriculeValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/validation/MatriculeValidationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/GlobalVars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/GlobalVars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/note/ExportNotesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/note/ExportNotesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/note/HandleNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/note/HandleNotes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/entities/UtilisateurTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/entities/UtilisateurTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="manybyhamza" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,25 +77,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "JUnit.EtudiantServiceTest.executor": "Run",
-    "JUnit.FiliereServiceTest.executor": "Run",
-    "JUnit.FiliereServiceTest.testCreate.executor": "Run",
-    "JUnit.ModuleDaoImplTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FiliereServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FiliereServiceTest.testCreate.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.builders" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ModuleDaoImplTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="DTProjet" />
@@ -104,16 +107,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EtudiantServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EtudiantDaoImplTest.testFindAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DTProjet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="services.EtudiantService.*" />
+          <option name="PATTERN" value="module.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="services.EtudiantService" />
-      <option name="MAIN_CLASS_NAME" value="services.EtudiantService.EtudiantServiceTest" />
+      <option name="PACKAGE_NAME" value="module" />
+      <option name="MAIN_CLASS_NAME" value="module.EtudiantDaoImplTest" />
+      <option name="METHOD_NAME" value="testFindAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EtudiantTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DTProjet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="entities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="entities" />
+      <option name="MAIN_CLASS_NAME" value="entities.EtudiantTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -150,26 +169,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ModuleDaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DTProjet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="module.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="module" />
-      <option name="MAIN_CLASS_NAME" value="module.ModuleDaoImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ModuleDaoImplTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.EtudiantServiceTest" />
+        <item itemvalue="JUnit.EtudiantTest" />
+        <item itemvalue="JUnit.EtudiantDaoImplTest.testFindAll" />
         <item itemvalue="JUnit.FiliereServiceTest" />
         <item itemvalue="JUnit.FiliereServiceTest.testCreate" />
       </list>
@@ -248,31 +252,7 @@
       <option name="project" value="LOCAL" />
       <updated>1736031807312</updated>
     </task>
-    <task id="LOCAL-00009" summary="A lot of stuff, errors fixed, cli added, test!">
-      <option name="closed" value="true" />
-      <created>1736034844785</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1736034844785</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Mockito Tests done for &quot;Etudiant&quot; Service class.">
-      <option name="closed" value="true" />
-      <created>1736076010915</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1736076010915</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Mockito Tests done for &quot;Etudiant&quot; Service class.">
-      <option name="closed" value="true" />
-      <created>1736076137025</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1736076137025</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,7 +270,30 @@
     <MESSAGE value="Merge pull request #1 from hamzanachid/feat-HamzaJob&#10;&#10;Feat hamza job" />
     <MESSAGE value="errors but okay" />
     <MESSAGE value="A lot of stuff, errors fixed, cli added, test!" />
-    <MESSAGE value="Mockito Tests done for &quot;Etudiant&quot; Service class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mockito Tests done for &quot;Etudiant&quot; Service class." />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot of stuff, errors fixed, cli added, test!" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/module/EtudiantDaoImplTest.java</url>
+          <line>98</line>
+          <properties class="module.EtudiantDaoImplTest" method="testFindAll">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

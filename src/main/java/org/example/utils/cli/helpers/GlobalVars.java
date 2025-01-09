@@ -1,7 +1,9 @@
 package org.example.utils.cli.helpers;
 
 
+import org.example.dao.EtudiantDao;
 import org.example.dao.config.DatabaseConnection;
+import org.example.dao.impl.EtudiantDaoImpl;
 import org.example.dao.impl.ProfesseurDaoImpl;
 import org.example.entities.Professeur;
 import org.example.services.*;
@@ -21,7 +23,8 @@ public class GlobalVars {
     public static final UtilisateurService utilisateurService = UtilisateurServiceImpl.instance;
     public static final FiliereService filiereService = FiliereServiceImpl.instance;
     public static final ModuleService moduleService = ModuleServiceImpl.instance;
-    public static final EtudiantService etudiantService = EtudiantServiceImpl.instance;
+    public static final EtudiantDao etudiantDao = EtudiantDaoImpl.instance;
+    public static final EtudiantService etudiantService = EtudiantServiceImpl.getInstance(etudiantDao);
     public static final ModaliteEvaluationService modaliteEvaluationService = ModaliteEvaluationServiceImpl.instance;
     public static final ElementDeModuleService elementDeModuleService = ElementsDeModuleServiceImpl.instance;
     public static final ProfesseurService professeurService = ProfesseurServiceImpl.getInstance(ProfesseurDaoImpl.getInstance(DatabaseConnection.getInstance(), utilisateurService));

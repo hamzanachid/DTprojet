@@ -41,7 +41,6 @@ public class EtudiantDaoImpl implements EtudiantDao {
         return etudiant;
     }
 
-    // TODO : I think we need to add other updateBy_something
     @Override
     public boolean update(Etudiant etudiant, Etudiant newEtudiant) {
         try (Connection conn = connectionManager.getConnection())
