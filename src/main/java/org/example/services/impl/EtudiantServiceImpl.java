@@ -44,6 +44,7 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public List<Etudiant> findEtudiantByElement(Long element_id) {
+        System.out.println(element_id);
         return etudiantDao.findEtudiantByElement(element_id);
     }
 

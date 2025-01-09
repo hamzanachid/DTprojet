@@ -18,7 +18,7 @@ public class HandleNotes {
                 CommandManager commandManager = new CommandManager();
                 commandManager.add("1", new HandleNotesCommand(element));
                 commandManager.add("2", new CalculateAverageCommand(element));
-                commandManager.add("3", new ExportNotesCommand());
+                commandManager.add("3", new ExportNotesCommand(element));
 
                 System.out.println("1. Manage notes");
                 System.out.println("2. Calculate average");
