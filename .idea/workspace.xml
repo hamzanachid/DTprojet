@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="A lot of stuff, errors fixed, cli added, test!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/impl/EtudiantDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/impl/EtudiantServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/impl/EtudiantServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/GlobalVars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/helpers/GlobalVars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/note/ExportNotesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/note/ExportNotesCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/note/HandleNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/cli/note/HandleNotes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/entities/UtilisateurTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/entities/UtilisateurTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="dcf342d3-bf78-443f-b0db-a8eaf88f3ba4" name="Changes" comment="A lot of stuff, errors fixed, cli added, test!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,23 +67,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FiliereServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FiliereServiceTest.testCreate.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.FiliereServiceTest.executor": "Run",
+    "JUnit.FiliereServiceTest.testCreate.executor": "Run",
+    "JUnit.ProfesseurTest.TestNoArgsConstructor.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.builders" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.ProfesseurTest.TestBuilder">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="DTProjet" />
@@ -138,32 +129,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FiliereServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfesseurTest.TestBuilder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DTProjet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="services.filiereService.*" />
+          <option name="PATTERN" value="entities.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="services.filiereService" />
-      <option name="MAIN_CLASS_NAME" value="services.filiereService.FiliereServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="entities" />
+      <option name="MAIN_CLASS_NAME" value="entities.ProfesseurTest" />
+      <option name="METHOD_NAME" value="TestBuilder" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FiliereServiceTest.testCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfesseurTest.TestNoArgsConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DTProjet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="services.filiereService.*" />
+          <option name="PATTERN" value="entities.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="services.filiereService" />
-      <option name="MAIN_CLASS_NAME" value="services.filiereService.FiliereServiceTest" />
-      <option name="METHOD_NAME" value="testCreate" />
+      <option name="PACKAGE_NAME" value="entities" />
+      <option name="MAIN_CLASS_NAME" value="entities.ProfesseurTest" />
+      <option name="METHOD_NAME" value="TestNoArgsConstructor" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProfesseurTest.TestBuilder" />
+        <item itemvalue="JUnit.ProfesseurTest.TestNoArgsConstructor" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.EtudiantTest" />
         <item itemvalue="JUnit.EtudiantDaoImplTest.testFindAll" />
-        <item itemvalue="JUnit.FiliereServiceTest" />
-        <item itemvalue="JUnit.FiliereServiceTest.testCreate" />
       </list>
     </recent_temporary>
   </component>
