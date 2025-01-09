@@ -103,9 +103,9 @@ CREATE TABLE Note (
 
 -- Basic test data insertions
 -- Users (admin and prof)
-INSERT INTO Utilisateur (nom, prenom, login, mot_de_passe, role) VALUES
-    ('admin', 'admin', 'admin', 'admin', 'ADMIN'),
-    ('prof', 'prof', 'prof', 'prof', 'PROFESSOR');
+INSERT INTO Utilisateur (login, mot_de_passe, role) VALUES
+    ('admin', 'admin', 'ADMIN'),
+    ('prof', 'prof', 'PROFESSOR');
 
 -- Professor
 INSERT INTO Professeur (nom, prenom, specialite, code, utilisateur_id) VALUES

@@ -31,6 +31,9 @@ public class ProfesseurServiceImpl implements ProfesseurService {
     }
 
     @Override
+    public Optional<Professeur> findByCode(String code) { return professeurDao.findByCode(code); }
+
+    @Override
     public Optional<Professeur> findByUserId(Long utilisateurId) {
         return professeurDao.findByUserId(utilisateurId);
     }

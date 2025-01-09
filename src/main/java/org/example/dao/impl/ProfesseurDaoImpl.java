@@ -31,6 +31,7 @@ public class ProfesseurDaoImpl implements ProfesseurDao {
 
     @Override
     public Professeur create(Professeur professeur) {
+
         String query = "INSERT INTO professeur (nom, prenom, specialite, code, utilisateur_id) VALUES(?, ?, ?, ?, ?) RETURNING id;";
         try (
                 Connection connection = databaseConnection.getConnection();
@@ -60,6 +61,24 @@ public class ProfesseurDaoImpl implements ProfesseurDao {
                 PreparedStatement statement = connection.prepareStatement(query)
         ) {
             statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return Optional.of(mapToProfesseur(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Professeur> findByCode(String code) {
+        String query = "SELECT * FROM professeur WHERE code LIKE ?;";
+        try (
+          Connection connection = databaseConnection.getConnection();
+          PreparedStatement statement = connection.prepareStatement(query)
+        ) {
+            statement.setString(1, code);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 return Optional.of(mapToProfesseur(resultSet));
@@ -108,15 +127,18 @@ public class ProfesseurDaoImpl implements ProfesseurDao {
 
     @Override
     public void update(Professeur professeur) {
-        String query = "UPDATE professeur SET nom = ?, prenom = ?, specialite = ?, code = ?;";
+        String query = "UPDATE professeur SET nom = ?, prenom = ?, specialite = ?, code = ? WHERE id = ?;";
         try (
-                Connection connection = databaseConnection.getConnection();
-                PreparedStatement statement = connection.prepareStatement(query);
+          Connection connection = databaseConnection.getConnection();
+          PreparedStatement statement = connection.prepareStatement(query);
         ) {
             statement.setString(1, professeur.getNom());
             statement.setString(2, professeur.getPrenom());
             statement.setString(3, professeur.getSpecialite());
             statement.setString(4, professeur.getCode());
+            statement.setLong(5, professeur.getId());
+
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
